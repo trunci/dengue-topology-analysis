@@ -1,0 +1,1249 @@
+2025-10-12 15:00:02,584 - INFO - ======================================================================
+2025-10-12 15:00:02,584 - INFO - STEP 1: LOADING AND PREPROCESSING DATA
+2025-10-12 15:00:02,585 - INFO - ======================================================================
+2025-10-12 15:00:17,468 - INFO - ✓ Loaded 1,502,259 records from ./DENGBR25.csv
+2025-10-12 15:00:17,469 - INFO - ✓ Columns available: 121
+2025-10-12 15:00:17,471 - INFO - ✓ Converted column names to lowercase
+2025-10-12 15:00:17,471 - INFO - 
+📊 classi_fin values distribution:
+2025-10-12 15:00:17,482 - INFO - classi_fin
+10.0    1184070
+8.0      171005
+11.0      29766
+12.0       2275
+Name: count, dtype: int64
+2025-10-12 15:00:17,563 - INFO - 
+✓ Filtered to confirmed cases: 0 cases (0.0%)
+2025-10-12 15:00:17,563 - ERROR - ✗ No confirmed cases found! All records filtered out.
+2025-10-12 15:00:17,563 - ERROR -    The data might not have any cases with classi_fin=1
+2025-10-12 15:00:17,563 - ERROR -    Proceeding with ALL cases instead...
+2025-10-12 15:00:31,702 - ERROR - Cotinuing processing with all cases
+2025-10-12 15:00:31,703 - INFO - ✓ Found dt_sin_pri to convert to datetime
+2025-10-12 15:00:31,788 - INFO - ✓ Converted dt_sin_pri to datetime
+2025-10-12 15:00:31,789 - INFO - ✓ Found dt_notific to convert to datetime
+2025-10-12 15:00:31,865 - INFO - ✓ Converted dt_notific to datetime
+2025-10-12 15:00:31,866 - INFO - ✓ Found dt_invest to convert to datetime
+2025-10-12 15:00:31,921 - INFO - ✓ Converted dt_invest to datetime
+2025-10-12 15:00:31,922 - INFO - 
+📊 Municipality data quality:
+2025-10-12 15:00:31,922 - INFO -    - Total records: 1,502,259
+2025-10-12 15:00:31,927 - INFO -    - Non-null id_mn_resi: 1,502,253
+2025-10-12 15:00:31,929 - INFO -    - Null id_mn_resi: 6
+2025-10-12 15:00:35,917 - INFO - ✓ Removed 6 records with missing residence municipality
+2025-10-12 15:00:36,355 - INFO - 
+📊 Data Summary:
+2025-10-12 15:00:36,356 - INFO -    - Total cases: 1,502,253
+2025-10-12 15:00:36,392 - INFO -    - Unique municipalities (residence): 5,047
+2025-10-12 15:00:36,396 - INFO -    - Records with valid dates: 1,502,253
+2025-10-12 15:00:36,400 - INFO -    - Date range: 2024-12-29 00:00:00 to 2025-07-05 00:00:00
+2025-10-12 15:00:36,409 - INFO - 
+   Autochthony distribution:
+2025-10-12 15:00:36,409 - INFO -    - Autochthonous (local): 955,432
+2025-10-12 15:00:36,409 - INFO -    - Imported: 20,097
+2025-10-12 15:00:36,409 - INFO -    - Indeterminate: 27,099
+2025-10-12 15:00:36,410 - INFO - 
+======================================================================
+2025-10-12 15:00:36,410 - INFO - STEP 2: BUILDING TRANSMISSION NETWORK
+2025-10-12 15:00:36,410 - INFO - ======================================================================
+2025-10-12 15:00:36,457 - INFO - ✓ Added 5,047 municipalities as nodes
+2025-10-12 15:00:36,657 - INFO - ✓ Found 8,842 imported cases for edge construction
+2025-10-12 15:00:36,778 - INFO - ✓ Added 4,048 directed edges based on imported cases
+2025-10-12 15:00:36,778 - INFO -    - These edges represent ACTUAL transmission pathways
+2025-10-12 15:00:36,778 - INFO - 
+⚙️  Computing temporal correlations between municipalities...
+2025-10-12 15:00:36,778 - INFO -    ⏱️  This may take several minutes for large datasets...
+2025-10-12 15:00:36,778 - INFO -    📊 Building time series for each municipality...
+2025-10-12 15:03:33,634 - INFO -    ✓ Built time series for 5,047 municipalities
+2025-10-12 15:03:33,635 - INFO -    🔄 Computing 12,733,581 pairwise correlations...
+2025-10-12 15:03:33,635 - INFO -    (Will log progress every 100 municipalities)
+2025-10-12 15:03:46,020 - INFO -    - Progress: 100/5047 municipalities (2.0%) | Elapsed: 0.2min | Est. remaining: 10.2min | Edges added so far: 117,216
+2025-10-12 15:03:57,175 - INFO -    - Progress: 200/5047 municipalities (4.0%) | Elapsed: 0.4min | Est. remaining: 9.5min | Edges added so far: 225,866
+2025-10-12 15:04:06,961 - INFO -    - Progress: 300/5047 municipalities (5.9%) | Elapsed: 0.6min | Est. remaining: 8.8min | Edges added so far: 316,625
+2025-10-12 15:04:17,982 - INFO -    - Progress: 400/5047 municipalities (7.9%) | Elapsed: 0.7min | Est. remaining: 8.6min | Edges added so far: 416,801
+2025-10-12 15:04:28,384 - INFO -    - Progress: 500/5047 municipalities (9.9%) | Elapsed: 0.9min | Est. remaining: 8.3min | Edges added so far: 516,761
+2025-10-12 15:04:38,627 - INFO -    - Progress: 600/5047 municipalities (11.9%) | Elapsed: 1.1min | Est. remaining: 8.0min | Edges added so far: 617,855
+2025-10-12 15:04:49,264 - INFO -    - Progress: 700/5047 municipalities (13.9%) | Elapsed: 1.3min | Est. remaining: 7.8min | Edges added so far: 725,072
+2025-10-12 15:04:59,508 - INFO -    - Progress: 800/5047 municipalities (15.9%) | Elapsed: 1.4min | Est. remaining: 7.6min | Edges added so far: 826,707
+2025-10-12 15:05:09,709 - INFO -    - Progress: 900/5047 municipalities (17.8%) | Elapsed: 1.6min | Est. remaining: 7.4min | Edges added so far: 925,420
+2025-10-12 15:05:18,843 - INFO -    - Progress: 1000/5047 municipalities (19.8%) | Elapsed: 1.8min | Est. remaining: 7.1min | Edges added so far: 1,016,909
+2025-10-12 15:05:28,651 - INFO -    - Progress: 1100/5047 municipalities (21.8%) | Elapsed: 1.9min | Est. remaining: 6.9min | Edges added so far: 1,112,065
+2025-10-12 15:05:37,857 - INFO -    - Progress: 1200/5047 municipalities (23.8%) | Elapsed: 2.1min | Est. remaining: 6.6min | Edges added so far: 1,199,528
+2025-10-12 15:05:46,858 - INFO -    - Progress: 1300/5047 municipalities (25.8%) | Elapsed: 2.2min | Est. remaining: 6.4min | Edges added so far: 1,282,864
+2025-10-12 15:05:55,238 - INFO -    - Progress: 1400/5047 municipalities (27.7%) | Elapsed: 2.4min | Est. remaining: 6.1min | Edges added so far: 1,363,908
+2025-10-12 15:06:03,123 - INFO -    - Progress: 1500/5047 municipalities (29.7%) | Elapsed: 2.5min | Est. remaining: 5.9min | Edges added so far: 1,440,244
+2025-10-12 15:06:11,259 - INFO -    - Progress: 1600/5047 municipalities (31.7%) | Elapsed: 2.6min | Est. remaining: 5.7min | Edges added so far: 1,518,327
+2025-10-12 15:06:18,820 - INFO -    - Progress: 1700/5047 municipalities (33.7%) | Elapsed: 2.8min | Est. remaining: 5.4min | Edges added so far: 1,587,797
+2025-10-12 15:06:26,292 - INFO -    - Progress: 1800/5047 municipalities (35.7%) | Elapsed: 2.9min | Est. remaining: 5.2min | Edges added so far: 1,659,326
+2025-10-12 15:06:33,878 - INFO -    - Progress: 1900/5047 municipalities (37.6%) | Elapsed: 3.0min | Est. remaining: 5.0min | Edges added so far: 1,730,139
+2025-10-12 15:06:40,603 - INFO -    - Progress: 2000/5047 municipalities (39.6%) | Elapsed: 3.1min | Est. remaining: 4.7min | Edges added so far: 1,791,658
+2025-10-12 15:06:48,318 - INFO -    - Progress: 2100/5047 municipalities (41.6%) | Elapsed: 3.2min | Est. remaining: 4.6min | Edges added so far: 1,869,970
+2025-10-12 15:06:54,532 - INFO -    - Progress: 2200/5047 municipalities (43.6%) | Elapsed: 3.3min | Est. remaining: 4.3min | Edges added so far: 1,932,511
+2025-10-12 15:07:00,658 - INFO -    - Progress: 2300/5047 municipalities (45.6%) | Elapsed: 3.5min | Est. remaining: 4.1min | Edges added so far: 1,991,937
+2025-10-12 15:07:07,129 - INFO -    - Progress: 2400/5047 municipalities (47.6%) | Elapsed: 3.6min | Est. remaining: 3.9min | Edges added so far: 2,053,818
+2025-10-12 15:07:12,729 - INFO -    - Progress: 2500/5047 municipalities (49.5%) | Elapsed: 3.7min | Est. remaining: 3.7min | Edges added so far: 2,106,407
+2025-10-12 15:07:18,290 - INFO -    - Progress: 2600/5047 municipalities (51.5%) | Elapsed: 3.7min | Est. remaining: 3.5min | Edges added so far: 2,162,620
+2025-10-12 15:07:23,798 - INFO -    - Progress: 2700/5047 municipalities (53.5%) | Elapsed: 3.8min | Est. remaining: 3.3min | Edges added so far: 2,214,217
+2025-10-12 15:07:28,831 - INFO -    - Progress: 2800/5047 municipalities (55.5%) | Elapsed: 3.9min | Est. remaining: 3.1min | Edges added so far: 2,268,261
+2025-10-12 15:07:34,223 - INFO -    - Progress: 2900/5047 municipalities (57.5%) | Elapsed: 4.0min | Est. remaining: 3.0min | Edges added so far: 2,317,042
+2025-10-12 15:07:38,883 - INFO -    - Progress: 3000/5047 municipalities (59.4%) | Elapsed: 4.1min | Est. remaining: 2.8min | Edges added so far: 2,362,458
+2025-10-12 15:07:43,530 - INFO -    - Progress: 3100/5047 municipalities (61.4%) | Elapsed: 4.2min | Est. remaining: 2.6min | Edges added so far: 2,405,896
+2025-10-12 15:07:47,836 - INFO -    - Progress: 3200/5047 municipalities (63.4%) | Elapsed: 4.2min | Est. remaining: 2.4min | Edges added so far: 2,446,181
+2025-10-12 15:07:52,307 - INFO -    - Progress: 3300/5047 municipalities (65.4%) | Elapsed: 4.3min | Est. remaining: 2.3min | Edges added so far: 2,490,631
+2025-10-12 15:07:56,089 - INFO -    - Progress: 3400/5047 municipalities (67.4%) | Elapsed: 4.4min | Est. remaining: 2.1min | Edges added so far: 2,528,926
+2025-10-12 15:08:00,169 - INFO -    - Progress: 3500/5047 municipalities (69.3%) | Elapsed: 4.4min | Est. remaining: 2.0min | Edges added so far: 2,571,227
+2025-10-12 15:08:04,014 - INFO -    - Progress: 3600/5047 municipalities (71.3%) | Elapsed: 4.5min | Est. remaining: 1.8min | Edges added so far: 2,607,016
+2025-10-12 15:08:07,140 - INFO -    - Progress: 3700/5047 municipalities (73.3%) | Elapsed: 4.6min | Est. remaining: 1.7min | Edges added so far: 2,637,839
+2025-10-12 15:08:10,521 - INFO -    - Progress: 3800/5047 municipalities (75.3%) | Elapsed: 4.6min | Est. remaining: 1.5min | Edges added so far: 2,667,715
+2025-10-12 15:08:13,918 - INFO -    - Progress: 3900/5047 municipalities (77.3%) | Elapsed: 4.7min | Est. remaining: 1.4min | Edges added so far: 2,699,111
+2025-10-12 15:08:16,914 - INFO -    - Progress: 4000/5047 municipalities (79.3%) | Elapsed: 4.7min | Est. remaining: 1.2min | Edges added so far: 2,729,455
+2025-10-12 15:08:19,331 - INFO -    - Progress: 4100/5047 municipalities (81.2%) | Elapsed: 4.8min | Est. remaining: 1.1min | Edges added so far: 2,753,179
+2025-10-12 15:08:21,444 - INFO -    - Progress: 4200/5047 municipalities (83.2%) | Elapsed: 4.8min | Est. remaining: 1.0min | Edges added so far: 2,772,605
+2025-10-12 15:08:23,452 - INFO -    - Progress: 4300/5047 municipalities (85.2%) | Elapsed: 4.8min | Est. remaining: 0.8min | Edges added so far: 2,790,574
+2025-10-12 15:08:25,226 - INFO -    - Progress: 4400/5047 municipalities (87.2%) | Elapsed: 4.9min | Est. remaining: 0.7min | Edges added so far: 2,808,368
+2025-10-12 15:08:26,740 - INFO -    - Progress: 4500/5047 municipalities (89.2%) | Elapsed: 4.9min | Est. remaining: 0.6min | Edges added so far: 2,824,268
+2025-10-12 15:08:28,004 - INFO -    - Progress: 4600/5047 municipalities (91.1%) | Elapsed: 4.9min | Est. remaining: 0.5min | Edges added so far: 2,836,677
+2025-10-12 15:08:29,013 - INFO -    - Progress: 4700/5047 municipalities (93.1%) | Elapsed: 4.9min | Est. remaining: 0.4min | Edges added so far: 2,846,121
+2025-10-12 15:08:29,681 - INFO -    - Progress: 4800/5047 municipalities (95.1%) | Elapsed: 4.9min | Est. remaining: 0.3min | Edges added so far: 2,852,733
+2025-10-12 15:08:30,144 - INFO -    - Progress: 4900/5047 municipalities (97.1%) | Elapsed: 4.9min | Est. remaining: 0.1min | Edges added so far: 2,857,252
+2025-10-12 15:08:30,349 - INFO -    - Progress: 5000/5047 municipalities (99.1%) | Elapsed: 4.9min | Est. remaining: 0.0min | Edges added so far: 2,859,335
+2025-10-12 15:08:30,369 - INFO -    ✓ Completed in 4.9 minutes
+2025-10-12 15:08:30,389 - INFO - ✓ Added 2,859,518 edges based on outbreak timing correlation
+2025-10-12 15:08:30,389 - INFO - 
+📊 Network Statistics:
+2025-10-12 15:08:30,389 - INFO -    - Nodes (municipalities): 5,047
+2025-10-12 15:08:30,390 - INFO -    - Edges (transmission pathways): 2,863,547
+2025-10-12 15:08:30,391 - INFO -    - Average degree: 1134.75
+2025-10-12 15:08:30,392 - INFO -    - Network density: 0.1124
+2025-10-12 15:08:30,916 - INFO -    - Strongly connected components: 1424
+2025-10-12 15:08:30,917 - INFO -    - Largest component size: 3,624 nodes
+2025-10-12 15:08:30,974 - INFO - 
+======================================================================
+2025-10-12 15:08:30,974 - INFO - STEP 3: COMPUTING MUNICIPALITY RISK SCORES (Scalar Function)
+2025-10-12 15:08:30,974 - INFO - ======================================================================
+2025-10-12 15:11:27,196 - INFO - ✓ Computed risk scores for 5,047 municipalities
+2025-10-12 15:11:27,199 - INFO - 
+📊 Score Statistics:
+2025-10-12 15:11:27,200 - INFO -    - Mean: 0.3180
+2025-10-12 15:11:27,200 - INFO -    - Std Dev: 0.1719
+2025-10-12 15:11:27,201 - INFO -    - Min: 0.0624
+2025-10-12 15:11:27,201 - INFO -    - Max: 1.0000
+2025-10-12 15:11:27,202 - INFO -    - Median: 0.2887
+2025-10-12 15:11:27,204 - INFO - 
+🔝 Top 10 Municipalities by Risk Score:
+2025-10-12 15:11:27,290 - INFO -     1. 355030.0: 1.0000 (61,190 cases)
+2025-10-12 15:11:27,351 - INFO -     2. 354980.0: 0.9811 (49,991 cases)
+2025-10-12 15:11:27,402 - INFO -     3. 431490.0: 0.9803 (52,482 cases)
+2025-10-12 15:11:27,463 - INFO -     4. 350950.0: 0.9657 (42,331 cases)
+2025-10-12 15:11:27,495 - INFO -     5. 251394.0: 0.9273 (1 cases)
+2025-10-12 15:11:27,527 - INFO -     6. 431280.0: 0.9273 (1 cases)
+2025-10-12 15:11:27,590 - INFO -     7. 520870.0: 0.9258 (26,195 cases)
+2025-10-12 15:11:27,643 - INFO -     8. 354140.0: 0.9170 (25,321 cases)
+2025-10-12 15:11:27,695 - INFO -     9. 354340.0: 0.9066 (21,939 cases)
+2025-10-12 15:11:27,746 - INFO -    10. 353070.0: 0.8972 (20,254 cases)
+2025-10-12 15:11:27,746 - INFO - 
+======================================================================
+2025-10-12 15:11:27,746 - INFO - STEP 4: APPLYING DISCRETE MORSE THEORY
+2025-10-12 15:11:27,746 - INFO - ======================================================================
+2025-10-12 15:11:27,746 - INFO - ⚙️  Computing discrete gradient vector field...
+2025-10-12 15:11:29,983 - INFO - ✓ Paired 3,734 node pairs in gradient field
+2025-10-12 15:11:29,984 - INFO - ✓ Found 1,302 critical points (unpaired nodes)
+2025-10-12 15:11:29,985 - INFO - 
+📊 Critical Points Classification:
+2025-10-12 15:11:29,986 - INFO -    - Local Maxima (outbreak sources): 5
+2025-10-12 15:11:29,986 - INFO -    - Saddle Points (transmission bridges): 7
+2025-10-12 15:11:29,986 - INFO -    - Local Minima (low-risk areas): 76
+2025-10-12 15:11:30,167 - INFO - 
+======================================================================
+2025-10-12 15:11:30,167 - INFO - STEP 5: IDENTIFYING CRITICAL TRANSMISSION HUBS
+2025-10-12 15:11:30,167 - INFO - ======================================================================
+2025-10-12 15:11:30,167 - INFO - ⚙️  Computing network centrality metrics...
+2025-10-12 16:11:48,082 - INFO - ✓ Identified top 20 transmission hubs
+
+2025-10-12 16:11:48,083 - INFO - 🎯 CRITICAL TRANSMISSION HUBS (Ranked):
+2025-10-12 16:11:48,083 - INFO - ======================================================================
+2025-10-12 16:11:48,282 - INFO - 
+ 1. Municipality: 290670.0
+2025-10-12 16:11:48,282 - INFO -     Hub Score: 2.1924
+2025-10-12 16:11:48,282 - INFO -     Type: BRIDGE
+2025-10-12 16:11:48,282 - INFO -     Cases: 204
+2025-10-12 16:11:48,282 - INFO -     Risk Score: 0.4866
+2025-10-12 16:11:48,282 - INFO -     Betweenness: 0.0002
+2025-10-12 16:11:48,282 - INFO -     Network Degree: 1036
+2025-10-12 16:11:48,318 - INFO - 
+ 2. Municipality: 290570.0
+2025-10-12 16:11:48,318 - INFO -     Hub Score: 2.1447
+2025-10-12 16:11:48,318 - INFO -     Type: BRIDGE/CONNECTOR
+2025-10-12 16:11:48,318 - INFO -     Cases: 113
+2025-10-12 16:11:48,318 - INFO -     Risk Score: 0.4531
+2025-10-12 16:11:48,318 - INFO -     Betweenness: 0.0003
+2025-10-12 16:11:48,318 - INFO -     Network Degree: 964
+2025-10-12 16:11:48,363 - INFO - 
+ 3. Municipality: 261090.0
+2025-10-12 16:11:48,363 - INFO -     Hub Score: 2.1171
+2025-10-12 16:11:48,363 - INFO -     Type: BRIDGE
+2025-10-12 16:11:48,363 - INFO -     Cases: 53
+2025-10-12 16:11:48,363 - INFO -     Risk Score: 0.4083
+2025-10-12 16:11:48,363 - INFO -     Betweenness: 0.0002
+2025-10-12 16:11:48,363 - INFO -     Network Degree: 1052
+2025-10-12 16:11:48,410 - INFO - 
+ 4. Municipality: 241200.0
+2025-10-12 16:11:48,410 - INFO -     Hub Score: 2.0716
+2025-10-12 16:11:48,410 - INFO -     Type: BRIDGE/CONNECTOR
+2025-10-12 16:11:48,410 - INFO -     Cases: 56
+2025-10-12 16:11:48,410 - INFO -     Risk Score: 0.3745
+2025-10-12 16:11:48,410 - INFO -     Betweenness: 0.0004
+2025-10-12 16:11:48,410 - INFO -     Network Degree: 990
+2025-10-12 16:11:48,542 - INFO - 
+ 5. Municipality: 316950.0
+2025-10-12 16:11:48,542 - INFO -     Hub Score: 2.0429
+2025-10-12 16:11:48,542 - INFO -     Type: BRIDGE
+2025-10-12 16:11:48,542 - INFO -     Cases: 40
+2025-10-12 16:11:48,542 - INFO -     Risk Score: 0.3366
+2025-10-12 16:11:48,542 - INFO -     Betweenness: 0.0001
+2025-10-12 16:11:48,542 - INFO -     Network Degree: 1040
+2025-10-12 16:11:48,579 - INFO - 
+ 6. Municipality: 240420.0
+2025-10-12 16:11:48,579 - INFO -     Hub Score: 2.0080
+2025-10-12 16:11:48,579 - INFO -     Type: BRIDGE
+2025-10-12 16:11:48,579 - INFO -     Cases: 23
+2025-10-12 16:11:48,579 - INFO -     Risk Score: 0.3051
+2025-10-12 16:11:48,579 - INFO -     Betweenness: 0.0002
+2025-10-12 16:11:48,579 - INFO -     Network Degree: 1022
+2025-10-12 16:11:48,631 - INFO - 
+ 7. Municipality: 420768.0
+2025-10-12 16:11:48,631 - INFO -     Hub Score: 1.6943
+2025-10-12 16:11:48,631 - INFO -     Type: BRIDGE
+2025-10-12 16:11:48,631 - INFO -     Cases: 5
+2025-10-12 16:11:48,631 - INFO -     Risk Score: 0.1939
+2025-10-12 16:11:48,631 - INFO -     Betweenness: 0.0000
+2025-10-12 16:11:48,631 - INFO -     Network Degree: 2
+2025-10-12 16:11:49,579 - INFO - 
+ 8. Municipality: 355030.0
+2025-10-12 16:11:49,579 - INFO -     Hub Score: 1.5996
+2025-10-12 16:11:49,579 - INFO -     Type: CONNECTOR
+2025-10-12 16:11:49,579 - INFO -     Cases: 61,190
+2025-10-12 16:11:49,579 - INFO -     Risk Score: 1.0000
+2025-10-12 16:11:49,579 - INFO -     Betweenness: 0.0012
+2025-10-12 16:11:49,579 - INFO -     Network Degree: 3013
+2025-10-12 16:11:49,647 - INFO - 
+ 9. Municipality: 350950.0
+2025-10-12 16:11:49,647 - INFO -     Hub Score: 1.5584
+2025-10-12 16:11:49,647 - INFO -     Type: HUB
+2025-10-12 16:11:49,647 - INFO -     Cases: 42,331
+2025-10-12 16:11:49,647 - INFO -     Risk Score: 0.9657
+2025-10-12 16:11:49,647 - INFO -     Betweenness: 0.0001
+2025-10-12 16:11:49,647 - INFO -     Network Degree: 2990
+2025-10-12 16:11:49,759 - INFO - 
+10. Municipality: 520870.0
+2025-10-12 16:11:49,760 - INFO -     Hub Score: 1.5187
+2025-10-12 16:11:49,760 - INFO -     Type: CONNECTOR
+2025-10-12 16:11:49,760 - INFO -     Cases: 26,195
+2025-10-12 16:11:49,760 - INFO -     Risk Score: 0.9258
+2025-10-12 16:11:49,760 - INFO -     Betweenness: 0.0007
+2025-10-12 16:11:49,760 - INFO -     Network Degree: 2985
+2025-10-12 16:11:49,854 - INFO - 
+11. Municipality: 431490.0
+2025-10-12 16:11:49,854 - INFO -     Hub Score: 1.5176
+2025-10-12 16:11:49,854 - INFO -     Type: CONNECTOR
+2025-10-12 16:11:49,855 - INFO -     Cases: 52,482
+2025-10-12 16:11:49,855 - INFO -     Risk Score: 0.9803
+2025-10-12 16:11:49,855 - INFO -     Betweenness: 0.0020
+2025-10-12 16:11:49,855 - INFO -     Network Degree: 2691
+2025-10-12 16:11:49,889 - INFO - 
+12. Municipality: 315190.0
+2025-10-12 16:11:49,889 - INFO -     Hub Score: 1.4839
+2025-10-12 16:11:49,889 - INFO -     Type: SOURCE
+2025-10-12 16:11:49,889 - INFO -     Cases: 2
+2025-10-12 16:11:49,889 - INFO -     Risk Score: 0.2837
+2025-10-12 16:11:49,889 - INFO -     Betweenness: 0.0000
+2025-10-12 16:11:49,889 - INFO -     Network Degree: 1
+2025-10-12 16:11:49,931 - INFO - 
+13. Municipality: 350600.0
+2025-10-12 16:11:49,931 - INFO -     Hub Score: 1.4770
+2025-10-12 16:11:49,932 - INFO -     Type: HUB
+2025-10-12 16:11:49,932 - INFO -     Cases: 15,168
+2025-10-12 16:11:49,932 - INFO -     Risk Score: 0.8716
+2025-10-12 16:11:49,932 - INFO -     Betweenness: 0.0002
+2025-10-12 16:11:49,932 - INFO -     Network Degree: 3053
+2025-10-12 16:11:49,977 - INFO - 
+14. Municipality: 354890.0
+2025-10-12 16:11:49,977 - INFO -     Hub Score: 1.4754
+2025-10-12 16:11:49,977 - INFO -     Type: HUB
+2025-10-12 16:11:49,977 - INFO -     Cases: 19,341
+2025-10-12 16:11:49,977 - INFO -     Risk Score: 0.8955
+2025-10-12 16:11:49,977 - INFO -     Betweenness: 0.0001
+2025-10-12 16:11:49,977 - INFO -     Network Degree: 2925
+2025-10-12 16:11:50,021 - INFO - 
+15. Municipality: 350320.0
+2025-10-12 16:11:50,021 - INFO -     Hub Score: 1.4575
+2025-10-12 16:11:50,022 - INFO -     Type: HUB
+2025-10-12 16:11:50,022 - INFO -     Cases: 17,681
+2025-10-12 16:11:50,022 - INFO -     Risk Score: 0.8847
+2025-10-12 16:11:50,022 - INFO -     Betweenness: 0.0002
+2025-10-12 16:11:50,022 - INFO -     Network Degree: 2888
+2025-10-12 16:11:50,054 - INFO - 
+16. Municipality: 316556.0
+2025-10-12 16:11:50,054 - INFO -     Hub Score: 1.4482
+2025-10-12 16:11:50,054 - INFO -     Type: SOURCE
+2025-10-12 16:11:50,054 - INFO -     Cases: 3
+2025-10-12 16:11:50,054 - INFO -     Risk Score: 0.2480
+2025-10-12 16:11:50,054 - INFO -     Betweenness: 0.0000
+2025-10-12 16:11:50,054 - INFO -     Network Degree: 1
+2025-10-12 16:11:50,096 - INFO - 
+17. Municipality: 355220.0
+2025-10-12 16:11:50,096 - INFO -     Hub Score: 1.4420
+2025-10-12 16:11:50,096 - INFO -     Type: HUB
+2025-10-12 16:11:50,096 - INFO -     Cases: 14,020
+2025-10-12 16:11:50,096 - INFO -     Risk Score: 0.8708
+2025-10-12 16:11:50,096 - INFO -     Betweenness: 0.0001
+2025-10-12 16:11:50,096 - INFO -     Network Degree: 2881
+2025-10-12 16:11:50,186 - INFO - 
+18. Municipality: 317010.0
+2025-10-12 16:11:50,186 - INFO -     Hub Score: 1.4320
+2025-10-12 16:11:50,186 - INFO -     Type: CONNECTOR
+2025-10-12 16:11:50,186 - INFO -     Cases: 12,522
+2025-10-12 16:11:50,186 - INFO -     Risk Score: 0.8574
+2025-10-12 16:11:50,186 - INFO -     Betweenness: 0.0002
+2025-10-12 16:11:50,186 - INFO -     Network Degree: 2897
+2025-10-12 16:11:50,218 - INFO - 
+19. Municipality: 431449.0
+2025-10-12 16:11:50,218 - INFO -     Hub Score: 1.4272
+2025-10-12 16:11:50,218 - INFO -     Type: SOURCE
+2025-10-12 16:11:50,218 - INFO -     Cases: 3
+2025-10-12 16:11:50,218 - INFO -     Risk Score: 0.2270
+2025-10-12 16:11:50,218 - INFO -     Betweenness: 0.0000
+2025-10-12 16:11:50,218 - INFO -     Network Degree: 1
+2025-10-12 16:11:50,262 - INFO - 
+20. Municipality: 520140.0
+2025-10-12 16:11:50,262 - INFO -     Hub Score: 1.4231
+2025-10-12 16:11:50,262 - INFO -     Type: HUB
+2025-10-12 16:11:50,262 - INFO -     Cases: 14,030
+2025-10-12 16:11:50,262 - INFO -     Risk Score: 0.8703
+2025-10-12 16:11:50,262 - INFO -     Betweenness: 0.0002
+2025-10-12 16:11:50,262 - INFO -     Network Degree: 2788
+2025-10-12 16:11:50,263 - INFO - 
+======================================================================
+2025-10-12 16:11:50,264 - INFO - ANALYSIS SUMMARY
+2025-10-12 16:11:50,264 - INFO - ======================================================================
+2025-10-12 16:11:50,264 - INFO - 
+📋 Dataset Overview:
+2025-10-12 16:11:50,264 - INFO -    - Total cases analyzed: 1,502,253
+2025-10-12 16:11:50,264 - INFO -    - Municipalities: 5,047
+2025-10-12 16:11:50,265 - INFO -    - Transmission pathways: 2,863,547
+2025-10-12 16:11:50,265 - INFO - 
+🔬 Morse Theory Results:
+2025-10-12 16:11:50,265 - INFO -    - Critical points found: 88
+2025-10-12 16:11:50,265 - INFO -    - Outbreak sources (maxima): 5
+2025-10-12 16:11:50,265 - INFO -    - Transmission bridges (saddles): 7
+2025-10-12 16:11:50,265 - INFO -    - Low-risk areas (minima): 76
+2025-10-12 16:11:50,265 - INFO - 
+💡 Key Insights:
+2025-10-12 16:11:50,265 - INFO -    - The identified hubs represent municipalities that are topologically
+2025-10-12 16:11:50,265 - INFO -      critical for dengue transmission across Brazil
+2025-10-12 16:11:50,265 - INFO -    - Monitoring these hubs can provide early warning of outbreaks
+2025-10-12 16:11:50,265 - INFO -    - Intervention at bridge points can disrupt transmission chains
+2025-10-12 16:11:50,265 - INFO - 
+📝 Recommendations:
+2025-10-12 16:11:50,265 - INFO -    1. Prioritize surveillance in identified hub municipalities
+2025-10-12 16:11:50,265 - INFO -    2. Use hub activity as predictive features for ML models
+2025-10-12 16:11:50,265 - INFO -    3. Validate hubs with historical outbreak spread patterns
+2025-10-12 16:11:50,265 - INFO -    4. Consider vector control strategies focused on bridge municipalities
+2025-10-12 16:11:50,265 - INFO - 
+======================================================================
+2025-10-12 16:11:50,265 - INFO - Analysis complete! Check 'dengue_analysis.log' for full details.
+2025-10-12 16:11:50,265 - INFO - ======================================================================
+
+2025-10-12 16:11:50,278 - INFO - ✓ Saved results to 'transmission_hubs.csv'
+2025-10-12 16:33:54,708 - INFO - ======================================================================
+2025-10-12 16:33:54,708 - INFO - STEP 1: LOADING AND PREPROCESSING DATA
+2025-10-12 16:33:54,708 - INFO - ======================================================================
+2025-10-12 16:33:54,712 - ERROR - ✗ Failed to load data: [Errno 2] No such file or directory: './DENGBR24.csv'
+2025-10-12 16:33:54,712 - ERROR - ❌ Analysis failed: [Errno 2] No such file or directory: './DENGBR24.csv'
+Traceback (most recent call last):
+  File "/Users/trunci/Desktop/deng/main.py", line 601, in main
+    analyzer.load_and_preprocess_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/trunci/Desktop/deng/main.py", line 62, in load_and_preprocess_data
+    self.df = pd.read_csv(self.csv_path, encoding='latin-1', low_memory=False)
+              ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: './DENGBR24.csv'
+2025-10-12 16:34:28,255 - INFO - ======================================================================
+2025-10-12 16:34:28,255 - INFO - STEP 1: LOADING AND PREPROCESSING DATA
+2025-10-12 16:34:28,255 - INFO - ======================================================================
+2025-10-12 16:40:05,048 - INFO - ✓ Loaded 6,434,137 records from ./DENGBR24.csv
+2025-10-12 16:40:05,050 - INFO - ✓ Columns available: 121
+2025-10-12 16:40:05,056 - INFO - ✓ Converted column names to lowercase
+2025-10-12 16:40:05,059 - INFO - 
+📊 classi_fin values distribution:
+2025-10-12 16:40:05,097 - INFO - classi_fin
+10.0    5758125
+8.0      560373
+11.0      98925
+12.0       8688
+Name: count, dtype: int64
+2025-10-12 16:40:05,398 - INFO - 
+✓ Filtered to confirmed cases: 0 cases (0.0%)
+2025-10-12 16:40:05,398 - ERROR - ✗ No confirmed cases found! All records filtered out.
+2025-10-12 16:40:05,398 - ERROR -    The data might not have any cases with classi_fin=1
+2025-10-12 16:40:05,398 - ERROR -    Proceeding with ALL cases instead...
+2025-10-12 16:44:43,988 - ERROR - Cotinuing processing with all cases
+2025-10-12 16:44:43,991 - INFO - ✓ Found dt_sin_pri to convert to datetime
+2025-10-12 16:44:44,272 - INFO - ✓ Converted dt_sin_pri to datetime
+2025-10-12 16:44:44,272 - INFO - ✓ Found dt_notific to convert to datetime
+2025-10-12 16:44:44,505 - INFO - ✓ Converted dt_notific to datetime
+2025-10-12 16:44:44,505 - INFO - ✓ Found dt_invest to convert to datetime
+2025-10-12 16:44:44,647 - INFO - ✓ Converted dt_invest to datetime
+2025-10-12 16:44:44,647 - INFO - 
+📊 Municipality data quality:
+2025-10-12 16:44:44,647 - INFO -    - Total records: 6,434,137
+2025-10-12 16:44:44,657 - INFO -    - Non-null id_mn_resi: 6,434,116
+2025-10-12 16:44:44,660 - INFO -    - Null id_mn_resi: 21
+2025-10-12 16:44:56,777 - INFO - ✓ Removed 21 records with missing residence municipality
+2025-10-12 16:44:58,362 - INFO - 
+📊 Data Summary:
+2025-10-12 16:44:58,362 - INFO -    - Total cases: 6,434,116
+2025-10-12 16:44:58,484 - INFO -    - Unique municipalities (residence): 5,507
+2025-10-12 16:44:58,495 - INFO -    - Records with valid dates: 6,434,116
+2025-10-12 16:44:58,507 - INFO -    - Date range: 2023-12-31 00:00:00 to 2024-12-28 00:00:00
+2025-10-12 16:44:58,544 - INFO - 
+   Autochthony distribution:
+2025-10-12 16:44:58,545 - INFO -    - Autochthonous (local): 4,330,814
+2025-10-12 16:44:58,545 - INFO -    - Imported: 82,222
+2025-10-12 16:44:58,545 - INFO -    - Indeterminate: 160,461
+2025-10-12 16:44:58,545 - INFO - 
+======================================================================
+2025-10-12 16:44:58,545 - INFO - STEP 2: BUILDING TRANSMISSION NETWORK
+2025-10-12 16:44:58,545 - INFO - ======================================================================
+2025-10-12 16:44:58,721 - INFO - ✓ Added 5,507 municipalities as nodes
+2025-10-12 16:44:59,563 - INFO - ✓ Found 38,975 imported cases for edge construction
+2025-10-12 16:45:00,066 - INFO - ✓ Added 12,502 directed edges based on imported cases
+2025-10-12 16:45:00,067 - INFO -    - These edges represent ACTUAL transmission pathways
+2025-10-12 16:45:00,067 - INFO - 
+⚙️  Computing temporal correlations between municipalities...
+2025-10-12 16:45:00,067 - INFO -    ⏱️  This may take several minutes for large datasets...
+2025-10-12 16:45:00,067 - INFO -    📊 Building time series for each municipality...
+2025-10-12 17:00:19,102 - INFO -    ✓ Built time series for 5,507 municipalities
+2025-10-12 17:00:19,103 - INFO -    🔄 Computing 15,160,771 pairwise correlations...
+2025-10-12 17:00:19,103 - INFO -    (Will log progress every 100 municipalities)
+2025-10-12 17:00:43,909 - INFO -    - Progress: 100/5507 municipalities (1.8%) | Elapsed: 0.4min | Est. remaining: 22.4min | Edges added so far: 309,428
+2025-10-12 17:01:05,135 - INFO -    - Progress: 200/5507 municipalities (3.6%) | Elapsed: 0.8min | Est. remaining: 20.4min | Edges added so far: 598,179
+2025-10-12 17:01:27,425 - INFO -    - Progress: 300/5507 municipalities (5.4%) | Elapsed: 1.1min | Est. remaining: 19.8min | Edges added so far: 891,578
+2025-10-12 17:01:49,256 - INFO -    - Progress: 400/5507 municipalities (7.3%) | Elapsed: 1.5min | Est. remaining: 19.2min | Edges added so far: 1,173,471
+2025-10-12 17:02:07,897 - INFO -    - Progress: 500/5507 municipalities (9.1%) | Elapsed: 1.8min | Est. remaining: 18.2min | Edges added so far: 1,408,904
+2025-10-12 17:02:27,383 - INFO -    - Progress: 600/5507 municipalities (10.9%) | Elapsed: 2.1min | Est. remaining: 17.5min | Edges added so far: 1,671,054
+2025-10-12 17:02:48,664 - INFO -    - Progress: 700/5507 municipalities (12.7%) | Elapsed: 2.5min | Est. remaining: 17.1min | Edges added so far: 1,921,781
+2025-10-12 17:03:08,721 - INFO -    - Progress: 800/5507 municipalities (14.5%) | Elapsed: 2.8min | Est. remaining: 16.6min | Edges added so far: 2,204,187
+2025-10-12 17:03:41,788 - INFO -    - Progress: 900/5507 municipalities (16.3%) | Elapsed: 3.4min | Est. remaining: 17.3min | Edges added so far: 2,466,674
+2025-10-12 17:04:02,076 - INFO -    - Progress: 1000/5507 municipalities (18.2%) | Elapsed: 3.7min | Est. remaining: 16.7min | Edges added so far: 2,745,722
+2025-10-12 17:04:21,343 - INFO -    - Progress: 1100/5507 municipalities (20.0%) | Elapsed: 4.0min | Est. remaining: 16.2min | Edges added so far: 2,996,632
+2025-10-12 17:04:39,045 - INFO -    - Progress: 1200/5507 municipalities (21.8%) | Elapsed: 4.3min | Est. remaining: 15.5min | Edges added so far: 3,225,879
+2025-10-12 17:04:57,130 - INFO -    - Progress: 1300/5507 municipalities (23.6%) | Elapsed: 4.6min | Est. remaining: 15.0min | Edges added so far: 3,453,913
+2025-10-12 17:05:16,263 - INFO -    - Progress: 1400/5507 municipalities (25.4%) | Elapsed: 5.0min | Est. remaining: 14.5min | Edges added so far: 3,697,195
+2025-10-12 17:05:32,506 - INFO -    - Progress: 1500/5507 municipalities (27.2%) | Elapsed: 5.2min | Est. remaining: 14.0min | Edges added so far: 3,912,426
+2025-10-12 17:06:00,376 - INFO -    - Progress: 1600/5507 municipalities (29.1%) | Elapsed: 5.7min | Est. remaining: 13.9min | Edges added so far: 4,116,710
+2025-10-12 17:06:15,696 - INFO -    - Progress: 1700/5507 municipalities (30.9%) | Elapsed: 5.9min | Est. remaining: 13.3min | Edges added so far: 4,306,214
+2025-10-12 17:06:29,445 - INFO -    - Progress: 1800/5507 municipalities (32.7%) | Elapsed: 6.2min | Est. remaining: 12.7min | Edges added so far: 4,486,660
+2025-10-12 17:06:45,274 - INFO -    - Progress: 1900/5507 municipalities (34.5%) | Elapsed: 6.4min | Est. remaining: 12.2min | Edges added so far: 4,687,247
+2025-10-12 17:06:59,672 - INFO -    - Progress: 2000/5507 municipalities (36.3%) | Elapsed: 6.7min | Est. remaining: 11.7min | Edges added so far: 4,886,855
+2025-10-12 17:07:13,283 - INFO -    - Progress: 2100/5507 municipalities (38.1%) | Elapsed: 6.9min | Est. remaining: 11.2min | Edges added so far: 5,073,229
+2025-10-12 17:07:26,746 - INFO -    - Progress: 2200/5507 municipalities (39.9%) | Elapsed: 7.1min | Est. remaining: 10.7min | Edges added so far: 5,253,398
+2025-10-12 17:07:40,339 - INFO -    - Progress: 2300/5507 municipalities (41.8%) | Elapsed: 7.4min | Est. remaining: 10.3min | Edges added so far: 5,430,734
+2025-10-12 17:07:52,226 - INFO -    - Progress: 2400/5507 municipalities (43.6%) | Elapsed: 7.6min | Est. remaining: 9.8min | Edges added so far: 5,583,828
+2025-10-12 17:08:04,792 - INFO -    - Progress: 2500/5507 municipalities (45.4%) | Elapsed: 7.8min | Est. remaining: 9.3min | Edges added so far: 5,758,619
+2025-10-12 17:08:16,818 - INFO -    - Progress: 2600/5507 municipalities (47.2%) | Elapsed: 8.0min | Est. remaining: 8.9min | Edges added so far: 5,915,440
+2025-10-12 17:08:28,848 - INFO -    - Progress: 2700/5507 municipalities (49.0%) | Elapsed: 8.2min | Est. remaining: 8.5min | Edges added so far: 6,083,242
+2025-10-12 17:08:40,411 - INFO -    - Progress: 2800/5507 municipalities (50.8%) | Elapsed: 8.4min | Est. remaining: 8.1min | Edges added so far: 6,231,147
+2025-10-12 17:08:51,538 - INFO -    - Progress: 2900/5507 municipalities (52.7%) | Elapsed: 8.5min | Est. remaining: 7.7min | Edges added so far: 6,376,922
+2025-10-12 17:09:01,651 - INFO -    - Progress: 3000/5507 municipalities (54.5%) | Elapsed: 8.7min | Est. remaining: 7.3min | Edges added so far: 6,517,346
+2025-10-12 17:09:11,208 - INFO -    - Progress: 3100/5507 municipalities (56.3%) | Elapsed: 8.9min | Est. remaining: 6.9min | Edges added so far: 6,639,567
+2025-10-12 17:09:20,544 - INFO -    - Progress: 3200/5507 municipalities (58.1%) | Elapsed: 9.0min | Est. remaining: 6.5min | Edges added so far: 6,762,433
+2025-10-12 17:09:29,295 - INFO -    - Progress: 3300/5507 municipalities (59.9%) | Elapsed: 9.2min | Est. remaining: 6.1min | Edges added so far: 6,873,700
+2025-10-12 17:09:37,645 - INFO -    - Progress: 3400/5507 municipalities (61.7%) | Elapsed: 9.3min | Est. remaining: 5.8min | Edges added so far: 6,976,692
+2025-10-12 17:09:46,143 - INFO -    - Progress: 3500/5507 municipalities (63.6%) | Elapsed: 9.5min | Est. remaining: 5.4min | Edges added so far: 7,082,172
+2025-10-12 17:09:54,165 - INFO -    - Progress: 3600/5507 municipalities (65.4%) | Elapsed: 9.6min | Est. remaining: 5.1min | Edges added so far: 7,187,839
+2025-10-12 17:10:02,022 - INFO -    - Progress: 3700/5507 municipalities (67.2%) | Elapsed: 9.7min | Est. remaining: 4.7min | Edges added so far: 7,287,531
+2025-10-12 17:10:08,955 - INFO -    - Progress: 3800/5507 municipalities (69.0%) | Elapsed: 9.8min | Est. remaining: 4.4min | Edges added so far: 7,375,553
+2025-10-12 17:10:15,518 - INFO -    - Progress: 3900/5507 municipalities (70.8%) | Elapsed: 9.9min | Est. remaining: 4.1min | Edges added so far: 7,463,342
+2025-10-12 17:10:21,433 - INFO -    - Progress: 4000/5507 municipalities (72.6%) | Elapsed: 10.0min | Est. remaining: 3.8min | Edges added so far: 7,538,013
+2025-10-12 17:10:28,005 - INFO -    - Progress: 4100/5507 municipalities (74.5%) | Elapsed: 10.1min | Est. remaining: 3.5min | Edges added so far: 7,625,043
+2025-10-12 17:10:33,516 - INFO -    - Progress: 4200/5507 municipalities (76.3%) | Elapsed: 10.2min | Est. remaining: 3.2min | Edges added so far: 7,691,045
+2025-10-12 17:10:38,705 - INFO -    - Progress: 4300/5507 municipalities (78.1%) | Elapsed: 10.3min | Est. remaining: 2.9min | Edges added so far: 7,764,236
+2025-10-12 17:10:43,704 - INFO -    - Progress: 4400/5507 municipalities (79.9%) | Elapsed: 10.4min | Est. remaining: 2.6min | Edges added so far: 7,823,315
+2025-10-12 17:10:48,347 - INFO -    - Progress: 4500/5507 municipalities (81.7%) | Elapsed: 10.5min | Est. remaining: 2.3min | Edges added so far: 7,882,944
+2025-10-12 17:10:52,047 - INFO -    - Progress: 4600/5507 municipalities (83.5%) | Elapsed: 10.5min | Est. remaining: 2.1min | Edges added so far: 7,932,070
+2025-10-12 17:10:55,501 - INFO -    - Progress: 4700/5507 municipalities (85.3%) | Elapsed: 10.6min | Est. remaining: 1.8min | Edges added so far: 7,978,373
+2025-10-12 17:10:58,413 - INFO -    - Progress: 4800/5507 municipalities (87.2%) | Elapsed: 10.7min | Est. remaining: 1.6min | Edges added so far: 8,016,421
+2025-10-12 17:11:01,124 - INFO -    - Progress: 4900/5507 municipalities (89.0%) | Elapsed: 10.7min | Est. remaining: 1.3min | Edges added so far: 8,054,087
+2025-10-12 17:11:03,411 - INFO -    - Progress: 5000/5507 municipalities (90.8%) | Elapsed: 10.7min | Est. remaining: 1.1min | Edges added so far: 8,083,782
+2025-10-12 17:11:05,096 - INFO -    - Progress: 5100/5507 municipalities (92.6%) | Elapsed: 10.8min | Est. remaining: 0.9min | Edges added so far: 8,107,338
+2025-10-12 17:11:06,624 - INFO -    - Progress: 5200/5507 municipalities (94.4%) | Elapsed: 10.8min | Est. remaining: 0.6min | Edges added so far: 8,125,563
+2025-10-12 17:11:07,611 - INFO -    - Progress: 5300/5507 municipalities (96.2%) | Elapsed: 10.8min | Est. remaining: 0.4min | Edges added so far: 8,139,651
+2025-10-12 17:11:08,261 - INFO -    - Progress: 5400/5507 municipalities (98.1%) | Elapsed: 10.8min | Est. remaining: 0.2min | Edges added so far: 8,148,171
+2025-10-12 17:11:08,464 - INFO -    - Progress: 5500/5507 municipalities (99.9%) | Elapsed: 10.8min | Est. remaining: 0.0min | Edges added so far: 8,151,042
+2025-10-12 17:11:08,465 - INFO -    ✓ Completed in 10.8 minutes
+2025-10-12 17:11:08,493 - INFO - ✓ Added 8,151,048 edges based on outbreak timing correlation
+2025-10-12 17:11:08,493 - INFO - 
+📊 Network Statistics:
+2025-10-12 17:11:08,493 - INFO -    - Nodes (municipalities): 5,507
+2025-10-12 17:11:08,496 - INFO -    - Edges (transmission pathways): 8,163,537
+2025-10-12 17:11:08,497 - INFO -    - Average degree: 2964.79
+2025-10-12 17:11:08,498 - INFO -    - Network density: 0.2692
+2025-10-12 17:11:09,984 - INFO -    - Strongly connected components: 648
+2025-10-12 17:11:09,984 - INFO -    - Largest component size: 4,860 nodes
+2025-10-12 17:11:10,573 - INFO - 
+======================================================================
+2025-10-12 17:11:10,573 - INFO - STEP 3: COMPUTING MUNICIPALITY RISK SCORES (Scalar Function)
+2025-10-12 17:11:10,573 - INFO - ======================================================================
+2025-10-12 17:26:43,350 - INFO - ✓ Computed risk scores for 5,507 municipalities
+2025-10-12 17:26:43,352 - INFO - 
+📊 Score Statistics:
+2025-10-12 17:26:43,353 - INFO -    - Mean: 0.3600
+2025-10-12 17:26:43,353 - INFO -    - Std Dev: 0.1547
+2025-10-12 17:26:43,354 - INFO -    - Min: 0.0517
+2025-10-12 17:26:43,354 - INFO -    - Max: 1.0000
+2025-10-12 17:26:43,359 - INFO -    - Median: 0.3570
+2025-10-12 17:26:43,365 - INFO - 
+🔝 Top 10 Municipalities by Risk Score:
+2025-10-12 17:26:44,204 - INFO -     1. 355030.0: 1.0000 (631,870 cases)
+2025-10-12 17:26:44,553 - INFO -     2. 530010.0: 0.9383 (264,351 cases)
+2025-10-12 17:26:45,163 - INFO -     3. 310620.0: 0.9196 (218,393 cases)
+2025-10-12 17:26:45,756 - INFO -     4. 350950.0: 0.8779 (121,955 cases)
+2025-10-12 17:26:46,082 - INFO -     5. 330455.0: 0.8704 (110,121 cases)
+2025-10-12 17:26:46,306 - INFO -     6. 354990.0: 0.8605 (98,222 cases)
+2025-10-12 17:26:46,567 - INFO -     7. 420910.0: 0.8489 (80,219 cases)
+2025-10-12 17:26:46,798 - INFO -     8. 351880.0: 0.8476 (80,966 cases)
+2025-10-12 17:26:47,442 - INFO -     9. 311860.0: 0.8380 (73,959 cases)
+2025-10-12 17:26:47,736 - INFO -    10. 520870.0: 0.8242 (57,873 cases)
+2025-10-12 17:26:47,739 - INFO - 
+======================================================================
+2025-10-12 17:26:47,739 - INFO - STEP 4: APPLYING DISCRETE MORSE THEORY
+2025-10-12 17:26:47,739 - INFO - ======================================================================
+2025-10-12 17:26:47,739 - INFO - ⚙️  Computing discrete gradient vector field...
+2025-10-12 17:26:53,738 - INFO - ✓ Paired 4,930 node pairs in gradient field
+2025-10-12 17:26:53,739 - INFO - ✓ Found 568 critical points (unpaired nodes)
+2025-10-12 17:26:53,742 - INFO - 
+📊 Critical Points Classification:
+2025-10-12 17:26:53,742 - INFO -    - Local Maxima (outbreak sources): 0
+2025-10-12 17:26:53,742 - INFO -    - Saddle Points (transmission bridges): 4
+2025-10-12 17:26:53,742 - INFO -    - Local Minima (low-risk areas): 65
+2025-10-12 17:26:54,085 - INFO - 
+======================================================================
+2025-10-12 17:26:54,085 - INFO - STEP 5: IDENTIFYING CRITICAL TRANSMISSION HUBS
+2025-10-12 17:26:54,085 - INFO - ======================================================================
+2025-10-12 17:26:54,085 - INFO - ⚙️  Computing network centrality metrics...
+2025-10-12 19:52:29,751 - INFO - ======================================================================
+2025-10-12 19:52:29,751 - INFO - STEP 1: LOADING AND PREPROCESSING DATA
+2025-10-12 19:52:29,751 - INFO - ======================================================================
+2025-10-12 19:57:09,883 - INFO - ✓ Loaded 6,434,137 records from ./DENGBR24.csv
+2025-10-12 19:57:09,885 - INFO - ✓ Columns available: 121
+2025-10-12 19:57:09,889 - INFO - ✓ Converted column names to lowercase
+2025-10-12 19:57:09,891 - INFO - 
+📊 classi_fin values distribution:
+2025-10-12 19:57:09,925 - INFO - classi_fin
+10.0    5758125
+8.0      560373
+11.0      98925
+12.0       8688
+Name: count, dtype: int64
+2025-10-12 19:57:10,242 - INFO - 
+✓ Filtered to confirmed cases: 0 cases (0.0%)
+2025-10-12 19:57:10,242 - ERROR - ✗ No confirmed cases found! All records filtered out.
+2025-10-12 19:57:10,242 - ERROR -    The data might not have any cases with classi_fin=1
+2025-10-12 19:57:10,242 - ERROR -    Proceeding with ALL cases instead...
+2025-10-12 20:01:45,001 - ERROR - Cotinuing processing with all cases
+2025-10-12 20:01:45,003 - INFO - ✓ Found dt_sin_pri to convert to datetime
+2025-10-12 20:01:45,249 - INFO - ✓ Converted dt_sin_pri to datetime
+2025-10-12 20:01:45,250 - INFO - ✓ Found dt_notific to convert to datetime
+2025-10-12 20:01:45,462 - INFO - ✓ Converted dt_notific to datetime
+2025-10-12 20:01:45,462 - INFO - ✓ Found dt_invest to convert to datetime
+2025-10-12 20:01:45,603 - INFO - ✓ Converted dt_invest to datetime
+2025-10-12 20:01:45,603 - INFO - 
+📊 Municipality data quality:
+2025-10-12 20:01:45,603 - INFO -    - Total records: 6,434,137
+2025-10-12 20:01:45,613 - INFO -    - Non-null id_mn_resi: 6,434,116
+2025-10-12 20:01:45,616 - INFO -    - Null id_mn_resi: 21
+2025-10-12 20:01:57,898 - INFO - ✓ Removed 21 records with missing residence municipality
+2025-10-12 20:01:59,480 - INFO - 
+📊 Data Summary:
+2025-10-12 20:01:59,480 - INFO -    - Total cases: 6,434,116
+2025-10-12 20:01:59,604 - INFO -    - Unique municipalities (residence): 5,507
+2025-10-12 20:01:59,614 - INFO -    - Records with valid dates: 6,434,116
+2025-10-12 20:01:59,625 - INFO -    - Date range: 2023-12-31 00:00:00 to 2024-12-28 00:00:00
+2025-10-12 20:01:59,660 - INFO - 
+   Autochthony distribution:
+2025-10-12 20:01:59,662 - INFO -    - Autochthonous (local): 4,330,814
+2025-10-12 20:01:59,663 - INFO -    - Imported: 82,222
+2025-10-12 20:01:59,663 - INFO -    - Indeterminate: 160,461
+2025-10-12 20:01:59,664 - INFO - 
+======================================================================
+2025-10-12 20:01:59,664 - INFO - STEP 2: BUILDING TRANSMISSION NETWORK
+2025-10-12 20:01:59,664 - INFO - ======================================================================
+2025-10-12 20:01:59,841 - INFO - ✓ Added 5,507 municipalities as nodes
+2025-10-12 20:02:01,023 - INFO - ✓ Found 38,975 imported cases for edge construction
+2025-10-12 20:02:01,526 - INFO - ✓ Added 12,502 directed edges based on imported cases
+2025-10-12 20:02:01,526 - INFO -    - These edges represent ACTUAL transmission pathways
+2025-10-12 20:02:01,526 - INFO - 
+⚙️  Computing temporal correlations between municipalities...
+2025-10-12 20:02:01,526 - INFO -    ⏱️  This may take several minutes for large datasets...
+2025-10-12 20:02:01,526 - INFO -    📊 Building time series for each municipality...
+2025-10-12 20:16:30,694 - INFO -    ✓ Built time series for 5,507 municipalities
+2025-10-12 20:16:30,696 - INFO -    🔄 Computing 15,160,771 pairwise correlations...
+2025-10-12 20:16:30,696 - INFO -    (Will log progress every 100 municipalities)
+2025-10-12 20:16:52,033 - INFO -    - Progress: 100/5507 municipalities (1.8%) | Elapsed: 0.4min | Est. remaining: 19.2min | Edges added so far: 302,929
+2025-10-12 20:17:12,336 - INFO -    - Progress: 200/5507 municipalities (3.6%) | Elapsed: 0.7min | Est. remaining: 18.4min | Edges added so far: 568,406
+2025-10-12 20:17:34,477 - INFO -    - Progress: 300/5507 municipalities (5.4%) | Elapsed: 1.1min | Est. remaining: 18.5min | Edges added so far: 886,421
+2025-10-12 20:17:54,138 - INFO -    - Progress: 400/5507 municipalities (7.3%) | Elapsed: 1.4min | Est. remaining: 17.8min | Edges added so far: 1,166,211
+2025-10-12 20:18:13,741 - INFO -    - Progress: 500/5507 municipalities (9.1%) | Elapsed: 1.7min | Est. remaining: 17.2min | Edges added so far: 1,435,949
+2025-10-12 20:18:34,607 - INFO -    - Progress: 600/5507 municipalities (10.9%) | Elapsed: 2.1min | Est. remaining: 16.9min | Edges added so far: 1,736,290
+2025-10-12 20:18:54,250 - INFO -    - Progress: 700/5507 municipalities (12.7%) | Elapsed: 2.4min | Est. remaining: 16.4min | Edges added so far: 2,006,121
+2025-10-12 20:19:09,960 - INFO -    - Progress: 800/5507 municipalities (14.5%) | Elapsed: 2.7min | Est. remaining: 15.6min | Edges added so far: 2,225,141
+2025-10-12 20:19:28,504 - INFO -    - Progress: 900/5507 municipalities (16.3%) | Elapsed: 3.0min | Est. remaining: 15.2min | Edges added so far: 2,493,777
+2025-10-12 20:19:46,972 - INFO -    - Progress: 1000/5507 municipalities (18.2%) | Elapsed: 3.3min | Est. remaining: 14.7min | Edges added so far: 2,747,616
+2025-10-12 20:20:04,936 - INFO -    - Progress: 1100/5507 municipalities (20.0%) | Elapsed: 3.6min | Est. remaining: 14.3min | Edges added so far: 2,992,837
+2025-10-12 20:20:22,058 - INFO -    - Progress: 1200/5507 municipalities (21.8%) | Elapsed: 3.9min | Est. remaining: 13.8min | Edges added so far: 3,220,733
+2025-10-12 20:20:38,198 - INFO -    - Progress: 1300/5507 municipalities (23.6%) | Elapsed: 4.1min | Est. remaining: 13.3min | Edges added so far: 3,431,857
+2025-10-12 20:20:52,835 - INFO -    - Progress: 1400/5507 municipalities (25.4%) | Elapsed: 4.4min | Est. remaining: 12.8min | Edges added so far: 3,633,997
+2025-10-12 20:21:08,056 - INFO -    - Progress: 1500/5507 municipalities (27.2%) | Elapsed: 4.6min | Est. remaining: 12.3min | Edges added so far: 3,842,883
+2025-10-12 20:21:23,624 - INFO -    - Progress: 1600/5507 municipalities (29.1%) | Elapsed: 4.9min | Est. remaining: 11.9min | Edges added so far: 4,042,206
+2025-10-12 20:21:39,403 - INFO -    - Progress: 1700/5507 municipalities (30.9%) | Elapsed: 5.1min | Est. remaining: 11.5min | Edges added so far: 4,240,072
+2025-10-12 20:21:54,892 - INFO -    - Progress: 1800/5507 municipalities (32.7%) | Elapsed: 5.4min | Est. remaining: 11.1min | Edges added so far: 4,438,881
+2025-10-12 20:22:08,136 - INFO -    - Progress: 1900/5507 municipalities (34.5%) | Elapsed: 5.6min | Est. remaining: 10.7min | Edges added so far: 4,624,371
+2025-10-12 20:22:21,387 - INFO -    - Progress: 2000/5507 municipalities (36.3%) | Elapsed: 5.8min | Est. remaining: 10.2min | Edges added so far: 4,813,308
+2025-10-12 20:22:35,518 - INFO -    - Progress: 2100/5507 municipalities (38.1%) | Elapsed: 6.1min | Est. remaining: 9.9min | Edges added so far: 4,997,458
+2025-10-12 20:22:49,622 - INFO -    - Progress: 2200/5507 municipalities (39.9%) | Elapsed: 6.3min | Est. remaining: 9.5min | Edges added so far: 5,201,233
+2025-10-12 20:23:01,792 - INFO -    - Progress: 2300/5507 municipalities (41.8%) | Elapsed: 6.5min | Est. remaining: 9.1min | Edges added so far: 5,381,068
+2025-10-12 20:23:13,562 - INFO -    - Progress: 2400/5507 municipalities (43.6%) | Elapsed: 6.7min | Est. remaining: 8.7min | Edges added so far: 5,543,830
+2025-10-12 20:23:25,910 - INFO -    - Progress: 2500/5507 municipalities (45.4%) | Elapsed: 6.9min | Est. remaining: 8.3min | Edges added so far: 5,707,194
+2025-10-12 20:23:39,071 - INFO -    - Progress: 2600/5507 municipalities (47.2%) | Elapsed: 7.1min | Est. remaining: 8.0min | Edges added so far: 5,868,382
+2025-10-12 20:23:51,786 - INFO -    - Progress: 2700/5507 municipalities (49.0%) | Elapsed: 7.4min | Est. remaining: 7.6min | Edges added so far: 6,037,216
+2025-10-12 20:24:02,982 - INFO -    - Progress: 2800/5507 municipalities (50.8%) | Elapsed: 7.5min | Est. remaining: 7.3min | Edges added so far: 6,187,070
+2025-10-12 20:24:14,350 - INFO -    - Progress: 2900/5507 municipalities (52.7%) | Elapsed: 7.7min | Est. remaining: 6.9min | Edges added so far: 6,334,742
+2025-10-12 20:24:23,902 - INFO -    - Progress: 3000/5507 municipalities (54.5%) | Elapsed: 7.9min | Est. remaining: 6.6min | Edges added so far: 6,458,725
+2025-10-12 20:24:34,101 - INFO -    - Progress: 3100/5507 municipalities (56.3%) | Elapsed: 8.1min | Est. remaining: 6.3min | Edges added so far: 6,591,400
+2025-10-12 20:24:43,634 - INFO -    - Progress: 3200/5507 municipalities (58.1%) | Elapsed: 8.2min | Est. remaining: 5.9min | Edges added so far: 6,721,556
+2025-10-12 20:24:52,758 - INFO -    - Progress: 3300/5507 municipalities (59.9%) | Elapsed: 8.4min | Est. remaining: 5.6min | Edges added so far: 6,845,440
+2025-10-12 20:25:00,989 - INFO -    - Progress: 3400/5507 municipalities (61.7%) | Elapsed: 8.5min | Est. remaining: 5.3min | Edges added so far: 6,957,832
+2025-10-12 20:25:08,870 - INFO -    - Progress: 3500/5507 municipalities (63.6%) | Elapsed: 8.6min | Est. remaining: 5.0min | Edges added so far: 7,060,929
+2025-10-12 20:25:16,333 - INFO -    - Progress: 3600/5507 municipalities (65.4%) | Elapsed: 8.8min | Est. remaining: 4.6min | Edges added so far: 7,167,317
+2025-10-12 20:25:23,653 - INFO -    - Progress: 3700/5507 municipalities (67.2%) | Elapsed: 8.9min | Est. remaining: 4.3min | Edges added so far: 7,267,564
+2025-10-12 20:25:30,974 - INFO -    - Progress: 3800/5507 municipalities (69.0%) | Elapsed: 9.0min | Est. remaining: 4.0min | Edges added so far: 7,365,102
+2025-10-12 20:25:37,775 - INFO -    - Progress: 3900/5507 municipalities (70.8%) | Elapsed: 9.1min | Est. remaining: 3.8min | Edges added so far: 7,461,644
+2025-10-12 20:25:44,206 - INFO -    - Progress: 4000/5507 municipalities (72.6%) | Elapsed: 9.2min | Est. remaining: 3.5min | Edges added so far: 7,543,533
+2025-10-12 20:25:49,795 - INFO -    - Progress: 4100/5507 municipalities (74.5%) | Elapsed: 9.3min | Est. remaining: 3.2min | Edges added so far: 7,618,759
+2025-10-12 20:25:55,313 - INFO -    - Progress: 4200/5507 municipalities (76.3%) | Elapsed: 9.4min | Est. remaining: 2.9min | Edges added so far: 7,693,170
+2025-10-12 20:26:00,530 - INFO -    - Progress: 4300/5507 municipalities (78.1%) | Elapsed: 9.5min | Est. remaining: 2.7min | Edges added so far: 7,761,337
+2025-10-12 20:26:05,140 - INFO -    - Progress: 4400/5507 municipalities (79.9%) | Elapsed: 9.6min | Est. remaining: 2.4min | Edges added so far: 7,821,465
+2025-10-12 20:26:09,330 - INFO -    - Progress: 4500/5507 municipalities (81.7%) | Elapsed: 9.6min | Est. remaining: 2.2min | Edges added so far: 7,878,469
+2025-10-12 20:26:13,054 - INFO -    - Progress: 4600/5507 municipalities (83.5%) | Elapsed: 9.7min | Est. remaining: 1.9min | Edges added so far: 7,928,228
+2025-10-12 20:26:16,599 - INFO -    - Progress: 4700/5507 municipalities (85.3%) | Elapsed: 9.8min | Est. remaining: 1.7min | Edges added so far: 7,976,597
+2025-10-12 20:26:19,497 - INFO -    - Progress: 4800/5507 municipalities (87.2%) | Elapsed: 9.8min | Est. remaining: 1.4min | Edges added so far: 8,015,199
+2025-10-12 20:26:22,068 - INFO -    - Progress: 4900/5507 municipalities (89.0%) | Elapsed: 9.9min | Est. remaining: 1.2min | Edges added so far: 8,049,065
+2025-10-12 20:26:24,377 - INFO -    - Progress: 5000/5507 municipalities (90.8%) | Elapsed: 9.9min | Est. remaining: 1.0min | Edges added so far: 8,082,130
+2025-10-12 20:26:26,228 - INFO -    - Progress: 5100/5507 municipalities (92.6%) | Elapsed: 9.9min | Est. remaining: 0.8min | Edges added so far: 8,106,719
+2025-10-12 20:26:27,637 - INFO -    - Progress: 5200/5507 municipalities (94.4%) | Elapsed: 9.9min | Est. remaining: 0.6min | Edges added so far: 8,125,387
+2025-10-12 20:26:28,749 - INFO -    - Progress: 5300/5507 municipalities (96.2%) | Elapsed: 10.0min | Est. remaining: 0.4min | Edges added so far: 8,139,573
+2025-10-12 20:26:29,399 - INFO -    - Progress: 5400/5507 municipalities (98.1%) | Elapsed: 10.0min | Est. remaining: 0.2min | Edges added so far: 8,147,998
+2025-10-12 20:26:29,647 - INFO -    - Progress: 5500/5507 municipalities (99.9%) | Elapsed: 10.0min | Est. remaining: 0.0min | Edges added so far: 8,151,042
+2025-10-12 20:26:29,649 - INFO -    ✓ Completed in 10.0 minutes
+2025-10-12 20:26:29,678 - INFO - ✓ Added 8,151,052 edges based on outbreak timing correlation
+2025-10-12 20:26:29,679 - INFO - 
+📊 Network Statistics:
+2025-10-12 20:26:29,679 - INFO -    - Nodes (municipalities): 5,507
+2025-10-12 20:26:29,680 - INFO -    - Edges (transmission pathways): 8,163,541
+2025-10-12 20:26:29,681 - INFO -    - Average degree: 2964.79
+2025-10-12 20:26:29,683 - INFO -    - Network density: 0.2692
+2025-10-12 20:26:31,115 - INFO -    - Strongly connected components: 648
+2025-10-12 20:26:31,115 - INFO -    - Largest component size: 4,860 nodes
+2025-10-12 20:26:31,441 - INFO - 
+======================================================================
+2025-10-12 20:26:31,441 - INFO - STEP 3: COMPUTING MUNICIPALITY RISK SCORES (Scalar Function)
+2025-10-12 20:26:31,441 - INFO - ======================================================================
+2025-10-12 20:41:39,790 - INFO - ✓ Computed risk scores for 5,507 municipalities
+2025-10-12 20:41:39,791 - INFO - 
+📊 Score Statistics:
+2025-10-12 20:41:39,792 - INFO -    - Mean: 0.3600
+2025-10-12 20:41:39,792 - INFO -    - Std Dev: 0.1547
+2025-10-12 20:41:39,792 - INFO -    - Min: 0.0517
+2025-10-12 20:41:39,792 - INFO -    - Max: 1.0000
+2025-10-12 20:41:39,800 - INFO -    - Median: 0.3570
+2025-10-12 20:41:39,804 - INFO - 
+🔝 Top 10 Municipalities by Risk Score:
+2025-10-12 20:41:40,638 - INFO -     1. 355030.0: 1.0000 (631,870 cases)
+2025-10-12 20:41:40,970 - INFO -     2. 530010.0: 0.9383 (264,351 cases)
+2025-10-12 20:41:41,587 - INFO -     3. 310620.0: 0.9196 (218,393 cases)
+2025-10-12 20:41:42,170 - INFO -     4. 350950.0: 0.8779 (121,955 cases)
+2025-10-12 20:41:42,480 - INFO -     5. 330455.0: 0.8704 (110,121 cases)
+2025-10-12 20:41:42,729 - INFO -     6. 354990.0: 0.8605 (98,222 cases)
+2025-10-12 20:41:43,001 - INFO -     7. 420910.0: 0.8489 (80,219 cases)
+2025-10-12 20:41:43,496 - INFO -     8. 351880.0: 0.8476 (80,966 cases)
+2025-10-12 20:41:44,118 - INFO -     9. 311860.0: 0.8380 (73,959 cases)
+2025-10-12 20:41:44,435 - INFO -    10. 520870.0: 0.8242 (57,873 cases)
+2025-10-12 20:41:44,436 - INFO - 
+======================================================================
+2025-10-12 20:41:44,436 - INFO - STEP 4: APPLYING DISCRETE MORSE THEORY
+2025-10-12 20:41:44,436 - INFO - ======================================================================
+2025-10-12 20:41:44,436 - INFO - ⚙️  Computing discrete gradient vector field...
+2025-10-12 20:41:50,293 - INFO - ✓ Paired 4,930 node pairs in gradient field
+2025-10-12 20:41:50,294 - INFO - ✓ Found 568 critical points (unpaired nodes)
+2025-10-12 20:41:50,296 - INFO - 
+📊 Critical Points Classification:
+2025-10-12 20:41:50,296 - INFO -    - Local Maxima (outbreak sources): 0
+2025-10-12 20:41:50,296 - INFO -    - Saddle Points (transmission bridges): 4
+2025-10-12 20:41:50,296 - INFO -    - Local Minima (low-risk areas): 65
+2025-10-12 20:41:50,706 - INFO - 
+======================================================================
+2025-10-12 20:41:50,706 - INFO - STEP 5: IDENTIFYING CRITICAL TRANSMISSION HUBS
+2025-10-12 20:41:50,706 - INFO - ======================================================================
+2025-10-12 20:41:50,706 - INFO - ⚙️  Computing network centrality metrics...
+2025-10-12 22:13:19,804 - INFO - ✓ Identified top 20 transmission hubs
+
+2025-10-12 22:13:19,804 - INFO - 🎯 CRITICAL TRANSMISSION HUBS (Ranked):
+2025-10-12 22:13:19,805 - INFO - ======================================================================
+2025-10-12 22:13:21,089 - INFO - 
+ 1. Municipality: 352920.0
+2025-10-12 22:13:21,089 - INFO -     Hub Score: 2.1619
+2025-10-12 22:13:21,089 - INFO -     Type: BRIDGE
+2025-10-12 22:13:21,089 - INFO -     Cases: 183
+2025-10-12 22:13:21,089 - INFO -     Risk Score: 0.3984
+2025-10-12 22:13:21,089 - INFO -     Betweenness: 0.0002
+2025-10-12 22:13:21,089 - INFO -     Network Degree: 1449
+2025-10-12 22:13:21,267 - INFO - 
+ 2. Municipality: 500020.0
+2025-10-12 22:13:21,267 - INFO -     Hub Score: 2.1454
+2025-10-12 22:13:21,267 - INFO -     Type: BRIDGE
+2025-10-12 22:13:21,267 - INFO -     Cases: 89
+2025-10-12 22:13:21,267 - INFO -     Risk Score: 0.3410
+2025-10-12 22:13:21,267 - INFO -     Betweenness: 0.0001
+2025-10-12 22:13:21,267 - INFO -     Network Degree: 1675
+2025-10-12 22:13:22,636 - INFO - 
+ 3. Municipality: 355030.0
+2025-10-12 22:13:22,637 - INFO -     Hub Score: 2.0949
+2025-10-12 22:13:22,637 - INFO -     Type: CONNECTOR
+2025-10-12 22:13:22,637 - INFO -     Cases: 631,870
+2025-10-12 22:13:22,637 - INFO -     Risk Score: 1.0000
+2025-10-12 22:13:22,637 - INFO -     Betweenness: 0.0007
+2025-10-12 22:13:22,637 - INFO -     Network Degree: 6021
+2025-10-12 22:13:23,308 - INFO - 
+ 4. Municipality: 520870.0
+2025-10-12 22:13:23,308 - INFO -     Hub Score: 2.0797
+2025-10-12 22:13:23,308 - INFO -     Type: CONNECTOR
+2025-10-12 22:13:23,308 - INFO -     Cases: 57,873
+2025-10-12 22:13:23,308 - INFO -     Risk Score: 0.8242
+2025-10-12 22:13:23,308 - INFO -     Betweenness: 0.0004
+2025-10-12 22:13:23,308 - INFO -     Network Degree: 6908
+2025-10-12 22:13:23,515 - INFO - 
+ 5. Municipality: 150170.0
+2025-10-12 22:13:23,515 - INFO -     Hub Score: 2.0722
+2025-10-12 22:13:23,515 - INFO -     Type: BRIDGE
+2025-10-12 22:13:23,515 - INFO -     Cases: 111
+2025-10-12 22:13:23,515 - INFO -     Risk Score: 0.3536
+2025-10-12 22:13:23,515 - INFO -     Betweenness: 0.0001
+2025-10-12 22:13:23,515 - INFO -     Network Degree: 1202
+2025-10-12 22:13:24,181 - INFO - 
+ 6. Municipality: 354340.0
+2025-10-12 22:13:24,181 - INFO -     Hub Score: 2.0634
+2025-10-12 22:13:24,181 - INFO -     Type: CONNECTOR
+2025-10-12 22:13:24,181 - INFO -     Cases: 44,139
+2025-10-12 22:13:24,181 - INFO -     Risk Score: 0.8044
+2025-10-12 22:13:24,181 - INFO -     Betweenness: 0.0003
+2025-10-12 22:13:24,181 - INFO -     Network Degree: 6929
+2025-10-12 22:13:24,549 - INFO - 
+ 7. Municipality: 520110.0
+2025-10-12 22:13:24,549 - INFO -     Hub Score: 2.0503
+2025-10-12 22:13:24,549 - INFO -     Type: CONNECTOR
+2025-10-12 22:13:24,549 - INFO -     Cases: 39,050
+2025-10-12 22:13:24,549 - INFO -     Risk Score: 0.7945
+2025-10-12 22:13:24,549 - INFO -     Betweenness: 0.0004
+2025-10-12 22:13:24,549 - INFO -     Network Degree: 6910
+2025-10-12 22:13:24,832 - INFO - 
+ 8. Municipality: 350950.0
+2025-10-12 22:13:24,832 - INFO -     Hub Score: 2.0469
+2025-10-12 22:13:24,832 - INFO -     Type: CONNECTOR
+2025-10-12 22:13:24,832 - INFO -     Cases: 121,955
+2025-10-12 22:13:24,832 - INFO -     Risk Score: 0.8779
+2025-10-12 22:13:24,832 - INFO -     Betweenness: 0.0003
+2025-10-12 22:13:24,832 - INFO -     Network Degree: 6433
+2025-10-12 22:13:25,494 - INFO - 
+ 9. Municipality: 411370.0
+2025-10-12 22:13:25,494 - INFO -     Hub Score: 2.0290
+2025-10-12 22:13:25,494 - INFO -     Type: HUB
+2025-10-12 22:13:25,494 - INFO -     Cases: 47,794
+2025-10-12 22:13:25,494 - INFO -     Risk Score: 0.8104
+2025-10-12 22:13:25,494 - INFO -     Betweenness: 0.0002
+2025-10-12 22:13:25,494 - INFO -     Network Degree: 6707
+2025-10-12 22:13:25,891 - INFO - 
+10. Municipality: 420910.0
+2025-10-12 22:13:25,891 - INFO -     Hub Score: 2.0207
+2025-10-12 22:13:25,891 - INFO -     Type: CONNECTOR
+2025-10-12 22:13:25,891 - INFO -     Cases: 80,219
+2025-10-12 22:13:25,891 - INFO -     Risk Score: 0.8489
+2025-10-12 22:13:25,891 - INFO -     Betweenness: 0.0010
+2025-10-12 22:13:25,891 - INFO -     Network Degree: 6441
+2025-10-12 22:13:26,131 - INFO - 
+11. Municipality: 510619.0
+2025-10-12 22:13:26,131 - INFO -     Hub Score: 1.9941
+2025-10-12 22:13:26,131 - INFO -     Type: BRIDGE
+2025-10-12 22:13:26,131 - INFO -     Cases: 80
+2025-10-12 22:13:26,131 - INFO -     Risk Score: 0.3341
+2025-10-12 22:13:26,131 - INFO -     Betweenness: 0.0001
+2025-10-12 22:13:26,132 - INFO -     Network Degree: 880
+2025-10-12 22:13:26,590 - INFO - 
+12. Municipality: 354990.0
+2025-10-12 22:13:26,590 - INFO -     Hub Score: 1.9807
+2025-10-12 22:13:26,590 - INFO -     Type: HUB
+2025-10-12 22:13:26,590 - INFO -     Cases: 98,222
+2025-10-12 22:13:26,590 - INFO -     Risk Score: 0.8605
+2025-10-12 22:13:26,590 - INFO -     Betweenness: 0.0001
+2025-10-12 22:13:26,590 - INFO -     Network Degree: 6167
+2025-10-12 22:13:26,884 - INFO - 
+13. Municipality: 351880.0
+2025-10-12 22:13:26,884 - INFO -     Hub Score: 1.9774
+2025-10-12 22:13:26,884 - INFO -     Type: HUB
+2025-10-12 22:13:26,884 - INFO -     Cases: 80,966
+2025-10-12 22:13:26,884 - INFO -     Risk Score: 0.8476
+2025-10-12 22:13:26,884 - INFO -     Betweenness: 0.0001
+2025-10-12 22:13:26,884 - INFO -     Network Degree: 6219
+2025-10-12 22:13:27,123 - INFO - 
+14. Municipality: 520140.0
+2025-10-12 22:13:27,123 - INFO -     Hub Score: 1.9641
+2025-10-12 22:13:27,123 - INFO -     Type: HUB
+2025-10-12 22:13:27,123 - INFO -     Cases: 24,967
+2025-10-12 22:13:27,123 - INFO -     Risk Score: 0.7621
+2025-10-12 22:13:27,123 - INFO -     Betweenness: 0.0002
+2025-10-12 22:13:27,123 - INFO -     Network Degree: 6616
+2025-10-12 22:13:27,314 - INFO - 
+15. Municipality: 352900.0
+2025-10-12 22:13:27,314 - INFO -     Hub Score: 1.9536
+2025-10-12 22:13:27,314 - INFO -     Type: CONNECTOR
+2025-10-12 22:13:27,314 - INFO -     Cases: 10,505
+2025-10-12 22:13:27,314 - INFO -     Risk Score: 0.6981
+2025-10-12 22:13:27,314 - INFO -     Betweenness: 0.0004
+2025-10-12 22:13:27,314 - INFO -     Network Degree: 6908
+2025-10-12 22:13:27,659 - INFO - 
+16. Municipality: 411520.0
+2025-10-12 22:13:27,659 - INFO -     Hub Score: 1.9500
+2025-10-12 22:13:27,659 - INFO -     Type: HUB
+2025-10-12 22:13:27,659 - INFO -     Cases: 22,760
+2025-10-12 22:13:27,659 - INFO -     Risk Score: 0.7528
+2025-10-12 22:13:27,659 - INFO -     Betweenness: 0.0002
+2025-10-12 22:13:27,659 - INFO -     Network Degree: 6590
+2025-10-12 22:13:28,043 - INFO - 
+17. Municipality: 293330.0
+2025-10-12 22:13:28,043 - INFO -     Hub Score: 1.9428
+2025-10-12 22:13:28,043 - INFO -     Type: HUB
+2025-10-12 22:13:28,043 - INFO -     Cases: 35,780
+2025-10-12 22:13:28,043 - INFO -     Risk Score: 0.7876
+2025-10-12 22:13:28,043 - INFO -     Betweenness: 0.0002
+2025-10-12 22:13:28,043 - INFO -     Network Degree: 6359
+2025-10-12 22:13:29,745 - INFO - 
+18. Municipality: 310560.0
+2025-10-12 22:13:29,745 - INFO -     Hub Score: 1.9299
+2025-10-12 22:13:29,745 - INFO -     Type: HUB
+2025-10-12 22:13:29,745 - INFO -     Cases: 12,775
+2025-10-12 22:13:29,745 - INFO -     Risk Score: 0.7073
+2025-10-12 22:13:29,745 - INFO -     Betweenness: 0.0002
+2025-10-12 22:13:29,745 - INFO -     Network Degree: 6730
+2025-10-12 22:13:30,435 - INFO - 
+19. Municipality: 355410.0
+2025-10-12 22:13:30,435 - INFO -     Hub Score: 1.9198
+2025-10-12 22:13:30,435 - INFO -     Type: HUB
+2025-10-12 22:13:30,435 - INFO -     Cases: 27,968
+2025-10-12 22:13:30,435 - INFO -     Risk Score: 0.7679
+2025-10-12 22:13:30,436 - INFO -     Betweenness: 0.0002
+2025-10-12 22:13:30,436 - INFO -     Network Degree: 6341
+2025-10-12 22:13:30,676 - INFO - 
+20. Municipality: 352390.0
+2025-10-12 22:13:30,677 - INFO -     Hub Score: 1.9183
+2025-10-12 22:13:30,677 - INFO -     Type: HUB
+2025-10-12 22:13:30,677 - INFO -     Cases: 13,756
+2025-10-12 22:13:30,677 - INFO -     Risk Score: 0.7119
+2025-10-12 22:13:30,677 - INFO -     Betweenness: 0.0002
+2025-10-12 22:13:30,677 - INFO -     Network Degree: 6640
+2025-10-12 22:13:30,679 - INFO - 
+======================================================================
+2025-10-12 22:13:30,679 - INFO - ANALYSIS SUMMARY
+2025-10-12 22:13:30,679 - INFO - ======================================================================
+2025-10-12 22:13:30,679 - INFO - 
+📋 Dataset Overview:
+2025-10-12 22:13:30,679 - INFO -    - Total cases analyzed: 6,434,116
+2025-10-12 22:13:30,679 - INFO -    - Municipalities: 5,507
+2025-10-12 22:13:30,680 - INFO -    - Transmission pathways: 8,163,541
+2025-10-12 22:13:30,680 - INFO - 
+🔬 Morse Theory Results:
+2025-10-12 22:13:30,680 - INFO -    - Critical points found: 69
+2025-10-12 22:13:30,680 - INFO -    - Outbreak sources (maxima): 0
+2025-10-12 22:13:30,680 - INFO -    - Transmission bridges (saddles): 4
+2025-10-12 22:13:30,680 - INFO -    - Low-risk areas (minima): 65
+2025-10-12 22:13:30,680 - INFO - 
+💡 Key Insights:
+2025-10-12 22:13:30,680 - INFO -    - The identified hubs represent municipalities that are topologically
+2025-10-12 22:13:30,680 - INFO -      critical for dengue transmission across Brazil
+2025-10-12 22:13:30,680 - INFO -    - Monitoring these hubs can provide early warning of outbreaks
+2025-10-12 22:13:30,680 - INFO -    - Intervention at bridge points can disrupt transmission chains
+2025-10-12 22:13:30,680 - INFO - 
+📝 Recommendations:
+2025-10-12 22:13:30,680 - INFO -    1. Prioritize surveillance in identified hub municipalities
+2025-10-12 22:13:30,680 - INFO -    2. Use hub activity as predictive features for ML models
+2025-10-12 22:13:30,680 - INFO -    3. Validate hubs with historical outbreak spread patterns
+2025-10-12 22:13:30,680 - INFO -    4. Consider vector control strategies focused on bridge municipalities
+2025-10-12 22:13:30,680 - INFO - 
+======================================================================
+2025-10-12 22:13:30,680 - INFO - Analysis complete! Check 'dengue_analysis.log' for full details.
+2025-10-12 22:13:30,680 - INFO - ======================================================================
+
+2025-10-12 22:13:30,699 - INFO - ✓ Saved results to 'transmission_hubs.csv'
+2025-10-12 22:22:13,574 - INFO - ======================================================================
+2025-10-12 22:22:13,574 - INFO - STEP 1: LOADING AND PREPROCESSING DATA
+2025-10-12 22:22:13,574 - INFO - ======================================================================
+2025-10-12 22:27:10,854 - INFO - ✓ Loaded 6,434,137 records from ./DENGBR24.csv
+2025-10-12 22:27:10,855 - INFO - ✓ Columns available: 121
+2025-10-12 22:27:10,894 - INFO - 
+📊 classi_fin values distribution:
+classi_fin
+10.0    5758125
+8.0      560373
+11.0      98925
+12.0       8688
+Name: count, dtype: int64
+2025-10-12 22:27:10,899 - WARNING - ⚠️ No confirmed cases found; proceeding with ALL records.
+2025-10-12 22:27:10,899 - INFO - ✓ Converting dt_sin_pri to datetime
+2025-10-12 22:27:11,150 - INFO - ✓ Converting dt_notific to datetime
+2025-10-12 22:27:11,373 - INFO - ✓ Converting dt_invest to datetime
+2025-10-12 22:27:11,521 - INFO - 
+📊 Municipality data quality:
+2025-10-12 22:27:11,522 - INFO -    - Total records: 6,434,137
+2025-10-12 22:27:11,531 - INFO -    - Non-null id_mn_resi: 6,434,116
+2025-10-12 22:27:11,533 - INFO -    - Null id_mn_resi: 21
+2025-10-12 22:27:24,162 - INFO - ✓ Removed 21 records with missing residence municipality
+2025-10-12 22:27:25,750 - INFO - 
+📊 Data Summary:
+2025-10-12 22:27:25,752 - INFO -    - Total cases: 6,434,116
+2025-10-12 22:27:25,885 - INFO -    - Unique municipalities (residence): 5,507
+2025-10-12 22:27:25,896 - INFO -    - Records with valid dt_sin_pri: 6,434,116
+2025-10-12 22:27:25,927 - INFO -    - Date range: 2023-12-31 00:00:00 to 2024-12-28 00:00:00
+2025-10-12 22:27:25,964 - INFO - 
+   Autochthony distribution:
+2025-10-12 22:27:25,965 - INFO -    - Autochthonous (local): 4,330,814
+2025-10-12 22:27:25,965 - INFO -    - Imported: 82,222
+2025-10-12 22:27:25,965 - INFO -    - Indeterminate: 160,461
+2025-10-12 22:27:25,968 - INFO - 
+======================================================================
+2025-10-12 22:27:25,968 - INFO - STEP 2: BUILDING TRANSMISSION NETWORK (SPARSE & CORRECT WEIGHTS)
+2025-10-12 22:27:25,968 - INFO - ======================================================================
+2025-10-12 22:27:26,179 - INFO - ✓ Added 5,507 municipalities as nodes
+2025-10-12 22:27:27,375 - INFO - ✓ Found 38,975 imported cases for import-flow edges
+2025-10-12 22:27:27,892 - INFO - ✓ Added 12,502 directed edges from import flow
+2025-10-12 22:27:27,892 - INFO - 
+⚙️  Computing temporal correlations (sparse top-K per node)...
+2025-10-12 22:27:27,892 - INFO -    Threshold corr ≥ 0.7; Top-K per node = 15
+2025-10-12 22:37:40,855 - INFO - ======================================================================
+2025-10-12 22:37:40,855 - INFO - STEP 1: LOADING AND PREPROCESSING DATA
+2025-10-12 22:37:40,855 - INFO - ======================================================================
+2025-10-12 22:37:50,831 - INFO - ✓ Loaded 1,508,653 records from ./DENGBR23.csv
+2025-10-12 22:37:50,832 - INFO - ✓ Columns available: 121
+2025-10-12 22:37:50,841 - INFO - 
+📊 classi_fin values distribution:
+classi_fin
+10.0    1275920
+8.0      207687
+11.0      20116
+12.0       1546
+Name: count, dtype: int64
+2025-10-12 22:37:50,842 - WARNING - ⚠️ No confirmed cases found; proceeding with ALL records.
+2025-10-12 22:37:50,842 - INFO - ✓ Converting dt_sin_pri to datetime
+2025-10-12 22:37:50,904 - INFO - ✓ Converting dt_notific to datetime
+2025-10-12 22:37:50,961 - INFO - ✓ Converting dt_invest to datetime
+2025-10-12 22:37:50,999 - INFO - 
+📊 Municipality data quality:
+2025-10-12 22:37:50,999 - INFO -    - Total records: 1,508,653
+2025-10-12 22:37:51,001 - INFO -    - Non-null id_mn_resi: 1,508,645
+2025-10-12 22:37:51,002 - INFO -    - Null id_mn_resi: 8
+2025-10-12 22:37:52,840 - INFO - ✓ Removed 8 records with missing residence municipality
+2025-10-12 22:37:53,221 - INFO - 
+📊 Data Summary:
+2025-10-12 22:37:53,221 - INFO -    - Total cases: 1,508,645
+2025-10-12 22:37:53,253 - INFO -    - Unique municipalities (residence): 4,987
+2025-10-12 22:37:53,256 - INFO -    - Records with valid dt_sin_pri: 1,508,645
+2025-10-12 22:37:53,259 - INFO -    - Date range: 2023-01-01 00:00:00 to 2023-12-30 00:00:00
+2025-10-12 22:37:53,267 - INFO - 
+   Autochthony distribution:
+2025-10-12 22:37:53,268 - INFO -    - Autochthonous (local): 988,088
+2025-10-12 22:37:53,268 - INFO -    - Imported: 22,301
+2025-10-12 22:37:53,268 - INFO -    - Indeterminate: 43,904
+2025-10-12 22:37:53,268 - INFO - 
+======================================================================
+2025-10-12 22:37:53,268 - INFO - STEP 2: BUILDING TRANSMISSION NETWORK (SPARSE & CORRECT WEIGHTS)
+2025-10-12 22:37:53,268 - INFO - ======================================================================
+2025-10-12 22:37:53,311 - INFO - ✓ Added 4,987 municipalities as nodes
+2025-10-12 22:37:53,443 - INFO - ✓ Found 10,287 imported cases for import-flow edges
+2025-10-12 22:37:53,578 - INFO - ✓ Added 4,708 directed edges from import flow
+2025-10-12 22:37:53,578 - INFO - 
+⚙️  Computing temporal correlations (sparse top-K per node)...
+2025-10-12 22:37:53,578 - INFO -    Threshold corr ≥ 0.7; Top-K per node = 15
+2025-10-12 22:40:30,718 - INFO -    ✓ Built time series for 4,987 municipalities
+2025-10-12 22:48:18,895 - INFO - ✓ Added 53,851 temporal edges (sparse)
+2025-10-12 22:48:18,895 - INFO - 
+📊 Network Statistics:
+2025-10-12 22:48:18,895 - INFO -    - Nodes: 4,987
+2025-10-12 22:48:18,896 - INFO -    - Edges: 58,527
+2025-10-12 22:48:18,896 - INFO -    - Average degree: 23.47
+2025-10-12 22:48:18,897 - INFO -    - Density: 0.002354
+2025-10-12 22:48:18,920 - INFO -    - Strongly connected components: 1039
+2025-10-12 22:48:18,920 - INFO -    - Largest SCC size: 3,842 nodes
+2025-10-12 22:48:18,964 - INFO - 
+======================================================================
+2025-10-12 22:48:18,964 - INFO - STEP 3: COMPUTING MUNICIPALITY RISK SCORES (Scalar Function)
+2025-10-12 22:48:18,964 - INFO - ======================================================================
+2025-10-12 22:50:56,432 - INFO - ✓ Computed risk scores for 4,987 municipalities
+2025-10-12 22:50:56,436 - INFO - 
+📊 Score Stats | mean=0.3380 std=0.1761 min=0.0642 max=1.0000 median=0.3141
+2025-10-12 22:50:56,437 - INFO - 
+🔝 Top 10 Municipalities by Risk Score:
+2025-10-12 22:50:56,487 - INFO -     1. 411370.0: 1.0000 (45,884 cases)
+2025-10-12 22:50:56,529 - INFO -     2. 420910.0: 0.9994 (44,681 cases)
+2025-10-12 22:50:56,576 - INFO -     3. 410830.0: 0.9970 (45,205 cases)
+2025-10-12 22:50:56,622 - INFO -     4. 530010.0: 0.9873 (37,550 cases)
+2025-10-12 22:50:56,668 - INFO -     5. 354140.0: 0.9746 (36,159 cases)
+2025-10-12 22:50:56,718 - INFO -     6. 420540.0: 0.9723 (35,568 cases)
+2025-10-12 22:50:56,772 - INFO -     7. 317020.0: 0.9546 (28,095 cases)
+2025-10-12 22:50:56,804 - INFO -     8. 221063.0: 0.9532 (1 cases)
+2025-10-12 22:50:56,835 - INFO -     9. 172210.0: 0.9532 (1 cases)
+2025-10-12 22:50:56,867 - INFO -    10. 316270.0: 0.9532 (1 cases)
+2025-10-12 22:50:56,867 - INFO - 
+======================================================================
+2025-10-12 22:50:56,867 - INFO - STEP 4: APPLYING DISCRETE MORSE THEORY
+2025-10-12 22:50:56,867 - INFO - ======================================================================
+2025-10-12 22:50:56,867 - INFO - ⚙️  Computing discrete gradient vector field...
+2025-10-12 22:50:56,902 - INFO - ✓ Paired 3,721 node pairs
+2025-10-12 22:50:56,902 - INFO - ✓ Unpaired nodes (critical candidates): 978
+2025-10-12 22:50:56,903 - INFO - 
+📊 Critical Points:
+2025-10-12 22:50:56,903 - INFO -    - Maxima: 120
+2025-10-12 22:50:56,903 - INFO -    - Saddles: 186
+2025-10-12 22:50:56,903 - INFO -    - Minima: 159
+2025-10-12 22:50:56,904 - INFO - 
+======================================================================
+2025-10-12 22:50:56,904 - INFO - STEP 5: IDENTIFYING CRITICAL TRANSMISSION HUBS (FAST)
+2025-10-12 22:50:56,904 - INFO - ======================================================================
+2025-10-12 22:50:56,975 - INFO - ✓ Using largest SCC for centrality: 3,842 nodes
+2025-10-12 22:50:56,976 - INFO - ⚙️  Computing betweenness centrality (approx)...
+2025-10-12 22:50:57,651 - INFO - ⚙️  Computing degree centrality...
+2025-10-12 22:50:57,652 - INFO - ⚙️  Computing hub scores...
+2025-10-12 22:50:57,661 - INFO - ✓ Identified top 20 hubs
+2025-10-12 22:50:57,661 - INFO - 
+🎯 CRITICAL TRANSMISSION HUBS (Ranked):
+2025-10-12 22:50:57,661 - INFO - ======================================================================
+2025-10-12 22:50:57,695 - INFO - 
+ 1. Municipality: 353190.0
+2025-10-12 22:50:57,695 - INFO -     Hub Score: 2.1015
+2025-10-12 22:50:57,695 - INFO -     Type: BRIDGE
+2025-10-12 22:50:57,695 - INFO -     Cases: 584
+2025-10-12 22:50:57,695 - INFO -     Risk Score: 0.5949
+2025-10-12 22:50:57,695 - INFO -     Betweenness: 0.000665
+2025-10-12 22:50:57,695 - INFO -     Degree: 20
+2025-10-12 22:50:57,728 - INFO - 
+ 2. Municipality: 260960.0
+2025-10-12 22:50:57,728 - INFO -     Hub Score: 2.0698
+2025-10-12 22:50:57,728 - INFO -     Type: BRIDGE
+2025-10-12 22:50:57,728 - INFO -     Cases: 430
+2025-10-12 22:50:57,728 - INFO -     Risk Score: 0.5698
+2025-10-12 22:50:57,728 - INFO -     Betweenness: 0.000000
+2025-10-12 22:50:57,728 - INFO -     Degree: 8
+2025-10-12 22:50:57,764 - INFO - 
+ 3. Municipality: 412880.0
+2025-10-12 22:50:57,764 - INFO -     Hub Score: 2.0239
+2025-10-12 22:50:57,764 - INFO -     Type: BRIDGE
+2025-10-12 22:50:57,764 - INFO -     Cases: 229
+2025-10-12 22:50:57,764 - INFO -     Risk Score: 0.5179
+2025-10-12 22:50:57,764 - INFO -     Betweenness: 0.000147
+2025-10-12 22:50:57,764 - INFO -     Degree: 22
+2025-10-12 22:50:57,796 - INFO - 
+ 4. Municipality: 353950.0
+2025-10-12 22:50:57,796 - INFO -     Hub Score: 2.0210
+2025-10-12 22:50:57,796 - INFO -     Type: BRIDGE
+2025-10-12 22:50:57,796 - INFO -     Cases: 238
+2025-10-12 22:50:57,796 - INFO -     Risk Score: 0.5158
+2025-10-12 22:50:57,796 - INFO -     Betweenness: 0.000029
+2025-10-12 22:50:57,796 - INFO -     Degree: 22
+2025-10-12 22:50:57,829 - INFO - 
+ 5. Municipality: 240800.0
+2025-10-12 22:50:57,829 - INFO -     Hub Score: 2.0175
+2025-10-12 22:50:57,829 - INFO -     Type: BRIDGE
+2025-10-12 22:50:57,829 - INFO -     Cases: 231
+2025-10-12 22:50:57,829 - INFO -     Risk Score: 0.5175
+2025-10-12 22:50:57,829 - INFO -     Betweenness: 0.000000
+2025-10-12 22:50:57,829 - INFO -     Degree: 6
+2025-10-12 22:50:57,862 - INFO - 
+ 6. Municipality: 330187.0
+2025-10-12 22:50:57,862 - INFO -     Hub Score: 1.9857
+2025-10-12 22:50:57,862 - INFO -     Type: BRIDGE
+2025-10-12 22:50:57,862 - INFO -     Cases: 176
+2025-10-12 22:50:57,862 - INFO -     Risk Score: 0.4849
+2025-10-12 22:50:57,862 - INFO -     Betweenness: 0.000007
+2025-10-12 22:50:57,862 - INFO -     Degree: 3
+2025-10-12 22:50:57,894 - INFO - 
+ 7. Municipality: 330285.0
+2025-10-12 22:50:57,894 - INFO -     Hub Score: 1.9834
+2025-10-12 22:50:57,894 - INFO -     Type: BRIDGE
+2025-10-12 22:50:57,894 - INFO -     Cases: 119
+2025-10-12 22:50:57,894 - INFO -     Risk Score: 0.4821
+2025-10-12 22:50:57,894 - INFO -     Betweenness: 0.000000
+2025-10-12 22:50:57,894 - INFO -     Degree: 5
+2025-10-12 22:50:57,927 - INFO - 
+ 8. Municipality: 520330.0
+2025-10-12 22:50:57,927 - INFO -     Hub Score: 1.9694
+2025-10-12 22:50:57,927 - INFO -     Type: BRIDGE
+2025-10-12 22:50:57,927 - INFO -     Cases: 83
+2025-10-12 22:50:57,927 - INFO -     Risk Score: 0.4694
+2025-10-12 22:50:57,927 - INFO -     Betweenness: 0.000000
+2025-10-12 22:50:57,927 - INFO -     Degree: 15
+2025-10-12 22:50:57,959 - INFO - 
+ 9. Municipality: 354630.0
+2025-10-12 22:50:57,959 - INFO -     Hub Score: 1.9690
+2025-10-12 22:50:57,959 - INFO -     Type: BRIDGE
+2025-10-12 22:50:57,959 - INFO -     Cases: 142
+2025-10-12 22:50:57,959 - INFO -     Risk Score: 0.4638
+2025-10-12 22:50:57,959 - INFO -     Betweenness: 0.000014
+2025-10-12 22:50:57,959 - INFO -     Degree: 21
+2025-10-12 22:50:57,991 - INFO - 
+10. Municipality: 293070.0
+2025-10-12 22:50:57,991 - INFO -     Hub Score: 1.9642
+2025-10-12 22:50:57,991 - INFO -     Type: BRIDGE
+2025-10-12 22:50:57,992 - INFO -     Cases: 96
+2025-10-12 22:50:57,992 - INFO -     Risk Score: 0.4631
+2025-10-12 22:50:57,992 - INFO -     Betweenness: 0.000000
+2025-10-12 22:50:57,992 - INFO -     Degree: 4
+2025-10-12 22:50:58,024 - INFO - 
+11. Municipality: 110149.0
+2025-10-12 22:50:58,024 - INFO -     Hub Score: 1.9624
+2025-10-12 22:50:58,024 - INFO -     Type: BRIDGE
+2025-10-12 22:50:58,024 - INFO -     Cases: 113
+2025-10-12 22:50:58,024 - INFO -     Risk Score: 0.4538
+2025-10-12 22:50:58,024 - INFO -     Betweenness: 0.001327
+2025-10-12 22:50:58,024 - INFO -     Degree: 23
+2025-10-12 22:50:58,057 - INFO - 
+12. Municipality: 291080.0
+2025-10-12 22:50:58,057 - INFO -     Hub Score: 1.9606
+2025-10-12 22:50:58,057 - INFO -     Type: SOURCE
+2025-10-12 22:50:58,057 - INFO -     Cases: 3,087
+2025-10-12 22:50:58,057 - INFO -     Risk Score: 0.7563
+2025-10-12 22:50:58,057 - INFO -     Betweenness: 0.000597
+2025-10-12 22:50:58,057 - INFO -     Degree: 12
+2025-10-12 22:50:58,089 - INFO - 
+13. Municipality: 110145.0
+2025-10-12 22:50:58,089 - INFO -     Hub Score: 1.9583
+2025-10-12 22:50:58,089 - INFO -     Type: BRIDGE
+2025-10-12 22:50:58,089 - INFO -     Cases: 70
+2025-10-12 22:50:58,089 - INFO -     Risk Score: 0.4583
+2025-10-12 22:50:58,089 - INFO -     Betweenness: 0.000000
+2025-10-12 22:50:58,089 - INFO -     Degree: 5
+2025-10-12 22:50:58,121 - INFO - 
+14. Municipality: 270230.0
+2025-10-12 22:50:58,121 - INFO -     Hub Score: 1.9524
+2025-10-12 22:50:58,121 - INFO -     Type: BRIDGE
+2025-10-12 22:50:58,121 - INFO -     Cases: 115
+2025-10-12 22:50:58,121 - INFO -     Risk Score: 0.4524
+2025-10-12 22:50:58,121 - INFO -     Betweenness: 0.000000
+2025-10-12 22:50:58,121 - INFO -     Degree: 3
+2025-10-12 22:50:58,154 - INFO - 
+15. Municipality: 355170.0
+2025-10-12 22:50:58,154 - INFO -     Hub Score: 1.9506
+2025-10-12 22:50:58,154 - INFO -     Type: BRIDGE
+2025-10-12 22:50:58,154 - INFO -     Cases: 103
+2025-10-12 22:50:58,154 - INFO -     Risk Score: 0.4460
+2025-10-12 22:50:58,154 - INFO -     Betweenness: 0.000059
+2025-10-12 22:50:58,154 - INFO -     Degree: 17
+2025-10-12 22:50:58,186 - INFO - 
+16. Municipality: 330555.0
+2025-10-12 22:50:58,186 - INFO -     Hub Score: 1.9414
+2025-10-12 22:50:58,186 - INFO -     Type: BRIDGE
+2025-10-12 22:50:58,186 - INFO -     Cases: 77
+2025-10-12 22:50:58,186 - INFO -     Risk Score: 0.4414
+2025-10-12 22:50:58,186 - INFO -     Betweenness: 0.000000
+2025-10-12 22:50:58,186 - INFO -     Degree: 2
+2025-10-12 22:50:58,218 - INFO - 
+17. Municipality: 110175.0
+2025-10-12 22:50:58,218 - INFO -     Hub Score: 1.9342
+2025-10-12 22:50:58,218 - INFO -     Type: BRIDGE
+2025-10-12 22:50:58,218 - INFO -     Cases: 91
+2025-10-12 22:50:58,218 - INFO -     Risk Score: 0.4302
+2025-10-12 22:50:58,218 - INFO -     Betweenness: 0.000609
+2025-10-12 22:50:58,218 - INFO -     Degree: 11
+2025-10-12 22:50:58,250 - INFO - 
+18. Municipality: 230110.0
+2025-10-12 22:50:58,250 - INFO -     Hub Score: 1.9329
+2025-10-12 22:50:58,250 - INFO -     Type: BRIDGE
+2025-10-12 22:50:58,250 - INFO -     Cases: 72
+2025-10-12 22:50:58,250 - INFO -     Risk Score: 0.4285
+2025-10-12 22:50:58,250 - INFO -     Betweenness: 0.000005
+2025-10-12 22:50:58,250 - INFO -     Degree: 17
+2025-10-12 22:50:58,282 - INFO - 
+19. Municipality: 520545.0
+2025-10-12 22:50:58,282 - INFO -     Hub Score: 1.9306
+2025-10-12 22:50:58,282 - INFO -     Type: BRIDGE
+2025-10-12 22:50:58,282 - INFO -     Cases: 26
+2025-10-12 22:50:58,282 - INFO -     Risk Score: 0.4306
+2025-10-12 22:50:58,282 - INFO -     Betweenness: 0.000000
+2025-10-12 22:50:58,282 - INFO -     Degree: 3
+2025-10-12 22:50:58,314 - INFO - 
+20. Municipality: 312600.0
+2025-10-12 22:50:58,314 - INFO -     Hub Score: 1.9304
+2025-10-12 22:50:58,314 - INFO -     Type: BRIDGE
+2025-10-12 22:50:58,314 - INFO -     Cases: 100
+2025-10-12 22:50:58,314 - INFO -     Risk Score: 0.4304
+2025-10-12 22:50:58,314 - INFO -     Betweenness: 0.000000
+2025-10-12 22:50:58,315 - INFO -     Degree: 4
+2025-10-12 22:50:58,315 - INFO - 
+======================================================================
+2025-10-12 22:50:58,315 - INFO - ANALYSIS SUMMARY
+2025-10-12 22:50:58,315 - INFO - ======================================================================
+2025-10-12 22:50:58,315 - INFO - 
+📋 Dataset Overview:
+2025-10-12 22:50:58,315 - INFO -    - Total cases analyzed: 1,508,645
+2025-10-12 22:50:58,315 - INFO -    - Municipalities: 4,987
+2025-10-12 22:50:58,316 - INFO -    - Transmission pathways: 58,527
+2025-10-12 22:50:58,316 - INFO - 
+🔬 Morse Theory Results:
+2025-10-12 22:50:58,316 - INFO -    - Critical points: 465
+2025-10-12 22:50:58,316 - INFO -    - Outbreak sources (maxima): 120
+2025-10-12 22:50:58,316 - INFO -    - Transmission bridges (saddles): 186
+2025-10-12 22:50:58,316 - INFO -    - Low-risk areas (minima): 159
+2025-10-12 22:50:58,316 - INFO - 
+💡 Key Insights:
+2025-10-12 22:50:58,316 - INFO -    - Identified hubs are topologically and network-centrally critical.
+2025-10-12 22:50:58,316 - INFO -    - Monitoring hubs can provide early warning; intervening at bridges can disrupt spread.
+2025-10-12 22:50:58,316 - INFO - 
+📝 Recommendations:
+2025-10-12 22:50:58,316 - INFO -    1. Prioritize surveillance in identified hubs.
+2025-10-12 22:50:58,316 - INFO -    2. Use hub metrics as features in ML forecasting.
+2025-10-12 22:50:58,316 - INFO -    3. Validate hubs against historical spread patterns.
+2025-10-12 22:50:58,316 - INFO -    4. Focus vector control on bridge municipalities.
+2025-10-12 22:50:58,316 - INFO - 
+======================================================================
+2025-10-12 22:50:58,316 - INFO - Analysis complete! See 'dengue_analysis.log' and output CSV.
+2025-10-12 22:50:58,316 - INFO - ======================================================================
+
+2025-10-12 22:50:58,320 - INFO - ✓ Saved results to 'transmission_hubs.csv'
